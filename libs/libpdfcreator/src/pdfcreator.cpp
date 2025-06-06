@@ -3,7 +3,7 @@
 #include <iostream>
 
 const std::vector<std::string> IDocument::kHeaders_ = {
-    "integrity_idintegrity_idintegrity_id",
+    "integrity_id",
     "type_id",
     "journal_id",
     "time",
@@ -36,7 +36,7 @@ PDFDocument::~PDFDocument() {
     HPDF_Free(pdf_);
 }
 
-void PDFDocument::AddText(const json &header_fields) {
+void PDFDocument::AddText(const json& header_fields) {
     if (header_fields.empty()) return;
 
     for (const auto &field: header_fields) {
@@ -50,13 +50,122 @@ void PDFDocument::AddText(const json &header_fields) {
         }
 
         std::string text = field.at("name").get<std::string>() + ": " + field.at("value").get<std::string>();
+        PrintTextWithWrap(text);
+    }
+}
+
+void PDFDocument::AddText(const std::string& text) {
+    if (text.empty()) return;
+
+    if (cursor_.y < kMargin) {
+        std::cout << "Создание новой страницы" << std::endl;
+        try {
+            AddNewPage();
+        } catch (std::exception &e) {
+            throw;
+        }
+    }
+
+    PrintTextWithWrap(text);
+}
+
+void PDFDocument::PrintTextWithWrap(const std::string& text) {
+    if (text.empty()) return;
+
+    // Получаем доступную ширину для текста (ширина страницы минус левый и правый отступы)
+    const HPDF_REAL page_width = HPDF_Page_GetWidth(page_);
+    const HPDF_REAL available_width = page_width - 2 * kMargin;
+
+    // Разбиваем текст на строки, которые помещаются в доступную ширину
+    std::vector<std::string> lines;
+    std::string current_line;
+    std::string current_word;
+
+    for (char ch : text) {
+        if (ch == ' ' || ch == '\t' || ch == '\n') {
+            // Для существующих разделителей обрабатываем накопленное слово
+            if (!current_word.empty()) {
+                ProcessWord(current_word, current_line, lines, available_width);
+            }
+
+            // Обрабатываем перевод строки отдельно,
+            // чтобы завершить формирование текущей строки, так как встретили "перевод строки"
+            if (ch == '\n') {
+                if (!current_line.empty()) {
+                    lines.push_back(current_line);
+                    current_line.clear();
+                } else {
+                    lines.push_back("");
+                }
+            }
+        } else {
+            current_word += ch;
+        }
+    }
+
+    // Добавляем последнее слово, если оно есть
+    if (!current_word.empty()) {
+        ProcessWord(current_word, current_line, lines, available_width);
+    }
+
+    // Добавляем оставшуюся строку
+    if (!current_line.empty()) {
+        lines.push_back(current_line);
+    }
+
+    // Печатаем все строки
+    for (const auto& line : lines) {
+        // Проверяем, нужно ли создать новую страницу
+        if (cursor_.y < kMargin) {
+            AddNewPage();
+        }
 
         HPDF_Page_BeginText(page_);
-        HPDF_Page_TextOut(page_, kStartPosX, cursor_.y, text.c_str());
+        HPDF_Page_TextOut(page_, kStartPosX, cursor_.y, line.c_str());
         HPDF_Page_EndText(page_);
-        cursor_.y -= kLineSpacing;
-        std::cout << "Current Y: " << cursor_.y << ", Page height: " << HPDF_Page_GetHeight(page_) << std::endl;
+        cursor_.y -= kFontSize + kLineSpacing;
     }
+}
+
+void PDFDocument::ProcessWord(std::string& word, std::string& current_line,
+                            std::vector<std::string>& lines, HPDF_REAL available_width) {
+    // Проверяем, помещается ли слово в текущую строку
+    std::string test_line = current_line.empty() ? word : current_line + " " + word;
+    HPDF_REAL text_width = HPDF_Page_TextWidth(page_, test_line.c_str());
+
+    if (text_width <= available_width) {
+        current_line = test_line;
+    } else {
+        // Если слово слишком длинное и не помещается даже в пустую строку
+        if (current_line.empty()) {
+            // Разбиваем слово посимвольно
+            for (char ch : word) {
+                std::string single_char(1, ch);
+                HPDF_REAL char_width = HPDF_Page_TextWidth(page_, single_char.c_str());
+
+                if (char_width > available_width) {
+                    // Если даже один символ не помещается - пропускаем
+                    continue;
+                }
+
+                test_line = current_line + single_char;
+                text_width = HPDF_Page_TextWidth(page_, test_line.c_str());
+
+                if (text_width <= available_width) {
+                    current_line = test_line;
+                } else {
+                    lines.push_back(current_line);
+                    current_line = single_char;
+                }
+            }
+            word.clear();
+        } else {
+            // Переносим текущую строку и начинаем новую с этого слова
+            lines.push_back(current_line);
+            current_line = word;
+        }
+    }
+    word.clear();
 }
 
 void PDFDocument::SaveToFile(const std::string &file_path) {
@@ -312,7 +421,7 @@ void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, c
 
         if (text_width <= (base_column_width - 2 * kLeftRightPadding)) {
             // Однострочный текст
-            HPDF_REAL text_x = x_pos_in_row + (base_column_width - text_width) / 2;
+            HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding; /*+ (base_column_width - text_width) / 2*/;
             // для вертикальной позиции выбираем положение по середнине
             HPDF_REAL text_y = cursor_.y - row_height / 2 - font_size / 3;
             HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
@@ -328,7 +437,7 @@ void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, c
                 std::string line = field.substr(start_pos, end_pos - start_pos);
 
                 HPDF_REAL line_width = HPDF_Page_TextWidth(page_, line.c_str());
-                HPDF_REAL text_x = x_pos_in_row + (base_column_width - line_width) / 2;
+                HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding; /*(base_column_width - line_width) / 2*/;
 
                 HPDF_Page_TextOut(page_, text_x, current_y - font_size, line.c_str());
                 current_y -= font_size + font_size/2.0;
