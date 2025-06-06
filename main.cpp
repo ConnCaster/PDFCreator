@@ -5,7 +5,7 @@
 int main() {
 
     PDFDocument pdf_document{};
-    /*pdf_document.AddHeader( json::parse(
+    pdf_document.AddText( json::parse(
         R"(
             [
                 {"name": "Document", "value": "Annual Report"},
@@ -34,7 +34,7 @@ int main() {
                 {"name": "9 Касперский Endpoint Security", "value": "2023-05-15 @ 10//20\\30;:"},
                 {"name": "Дата", "value": "2023-05-15"}
             ]
-        )"));*/
+        )"));
     pdf_document.AddTable();
     pdf_document.SaveToFile("/home/user/dir/PDFCreator/out.pdf");
 

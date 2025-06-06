@@ -36,7 +36,7 @@ PDFDocument::~PDFDocument() {
     HPDF_Free(pdf_);
 }
 
-void PDFDocument::AddHeader(const json &header_fields) {
+void PDFDocument::AddText(const json &header_fields) {
     if (header_fields.empty()) return;
 
     for (const auto &field: header_fields) {
@@ -108,7 +108,7 @@ void PDFDocument::AddTable() {
         "№;%:&*()_+=-",
         "\"double_quotes\", \'single_quotes\'"
     });
-    AddTableRow(3, {
+    AddTableRow(14, {
         "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
         "1234567890",
         "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
@@ -119,7 +119,7 @@ void PDFDocument::AddTable() {
         "№;%:&*()_+=-",
         "\"double_quotes\", \'single_quotes\'"
     });
-    AddTableRow(3, {
+    AddTableRow(14, {
         "abcdefghijklmnopqrstuvwxyz",
         "1234567890",
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -130,7 +130,7 @@ void PDFDocument::AddTable() {
         "№;%:&*()_+=-",
         "\"double_quotes\", \'single_quotes\'"
     });
-    AddTableRow(19, {
+    AddTableRow(11, {
        "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
        "1234567890",
        "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
@@ -141,7 +141,29 @@ void PDFDocument::AddTable() {
        "№;%:&*()_+=-",
        "\"double_quotes\", \'single_quotes\'"
    });
-    AddTableRow(13, {
+    AddTableRow(11, {
+        "abcdefghijklmnopqrstuvwxyz",
+        "1234567890",
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "0",
+        "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
+        "123456789012345",
+        "123456789012345678901234567890123456",
+        "№;%:&*()_+=-",
+        "\"double_quotes\", \'single_quotes\'"
+    });
+        AddTableRow(18, {
+        "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+        "1234567890",
+        "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+        "0",
+        "12345678901234567890123",
+        "123456789012345",
+        "123456789012345678901234567890123456",
+        "№;%:&*()_+=-",
+        "\"double_quotes\", \'single_quotes\'"
+    });
+    AddTableRow(18, {
         "abcdefghijklmnopqrstuvwxyz",
         "1234567890",
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -154,7 +176,69 @@ void PDFDocument::AddTable() {
     });
 }
 
+/*
+ *  Расчет количества символов, которые поместятся в строку внутри ячейки с учетом ширины ячейки и шрифта
+ *  cell_width - ширина ячейки в "пикселях"
+ *  text_width - ширина текста в "пикселях" (учитывает шрифт текста, ведь он влияет на ширину символа)
+ *  symbols    - количество символов в штуках
+ */
+int PDFDocument::CalcTextWidthInCell(HPDF_REAL cell_width, HPDF_REAL text_width, int symbols) {
+    return symbols * ((cell_width - 2 * kLeftRightPadding) / text_width);
+}
+
+/*
+ *  Расчет количества строк, которые займет текст в ячейке с заданной шириной
+ *  field_text     - непосредственно текст, который нужно запихнуть в ячейку
+ *  chars_per_line - количество символов, которые поместятся в строку внутри ячейки с учетом ширины ячейки и шрифта
+ */
+int PDFDocument::CalcTextRowsInCell(const std::string& field_text, size_t chars_per_line) {
+    size_t start_pos = 0;
+    int counter = 0;
+    while (start_pos < field_text.length()) {
+        size_t end_pos = std::min(start_pos + chars_per_line, field_text.length());
+        std::string line = field_text.substr(start_pos, end_pos - start_pos);
+        start_pos = end_pos;
+        counter++;
+    }
+    return counter;
+}
+
+/*
+ *  Расчет базовой ширины ячейки таблицы при условии, что все ячейки имеют одинаковую ширину
+ *  row_fields - вектор строк с текстом каждой ячейки в строке
+ */
+HPDF_REAL PDFDocument::CalcBaseColumnWidth(const std::vector<std::string> &row_fields) {
+    return (HPDF_Page_GetWidth(page_) - 2 * kMargin) / row_fields.size();
+}
+
+/*
+ *  Расчет максимальной высоты ячейки таблицы, в которую поместятся все строки с учетом возможных переносов
+ *  base_row_height - базовая высота ячейки таблицы (высота шрифта + две половины высоты шрифта)
+ *  base_column_width - базовая ширина ячейки таблицы (высота шрифта + две половины высоты шрифта)
+ *  font_size - размер шрифта
+ *  row_fields - вектор строк с текстом каждой ячейки в строке
+ */
+HPDF_REAL PDFDocument::CalcMaxColumnHeight(HPDF_REAL base_row_height, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::vector<std::string> &row_fields) {
+    HPDF_REAL max_row_height = base_row_height;
+
+    for (const auto &field: row_fields) {
+        HPDF_REAL text_width = HPDF_Page_TextWidth(page_, field.c_str());
+        int text_rows_counter = 1;
+        // если ширина текста в ячейке больше ширины ячейки за вычетом двух "заполнителей"
+        if (text_width > (base_column_width - 2 * kLeftRightPadding)) {
+            // то придется переносить текст на следующую строку (строка таблицы начнет вмещать 2 и более строк текста)
+            // для этого сделаем высоту строки таблицы больше
+            text_rows_counter = CalcTextRowsInCell(field, CalcTextWidthInCell(base_column_width, text_width, field.length()));    //ceil(text_width / (base_column_width - 2 * kLeftRightPadding));
+            HPDF_REAL required_height = text_rows_counter * (base_row_height - font_size/2.0) + font_size/2.0;
+            max_row_height = std::max(max_row_height, required_height);
+        }
+    }
+    return max_row_height;
+}
+
 void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string> &row_fields) {
+    HPDF_Page_SetFontAndSize(page_, font_, font_size);
+
     // Параметры таблицы:
     // ширина страницы
     HPDF_REAL page_width = HPDF_Page_GetWidth(page_);
@@ -162,34 +246,19 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
     HPDF_REAL table_width = page_width - 2 * kMargin;
     // ширина столбца в таблице
     // TODO: динамическая ширина столбца
-    HPDF_REAL base_column_width = table_width / row_fields.size();
+    HPDF_REAL base_column_width = CalcBaseColumnWidth(row_fields);
     // высота строки по умолчанию - размер шрифтра и еще полразмера сверху и снизу
-    HPDF_REAL base_row_height = kFontSizeTableRow * 2;
+    HPDF_REAL base_row_height = font_size * 2;
 
-    // 1. Предварительный расчет максимальной высоты строки.
-    // Учитывает возможную необходимость переноса строки текста в рамках строки таблицы
-    HPDF_REAL max_row_height = base_row_height;
-
-    for (const auto &field: row_fields) {
-        HPDF_REAL text_width = HPDF_Page_TextWidth(page_, field.c_str());
-        int text_rows = 1;
-        // если ширина текста в ячейке больше ширины ячейки за вычетом двух "заполнителей"
-        if (text_width > (base_column_width - 2 * kLeftRightPadding)) {
-            // то придется переносить текст на следующую строку (строка таблицы начнет вмещать 2 и более строк текста)
-            // для этого сделаем высоту строки таблицы больше
-            text_rows = ceil(text_width / (base_column_width - 2 * kLeftRightPadding));
-            HPDF_REAL required_height = text_rows * (base_row_height - kFontSizeTableRow/2.0) + kFontSizeTableRow/2.0;
-            max_row_height = std::max(max_row_height, required_height);
-        }
-        std::cout << "font: " << kFontSizeTableRow << " text_rows: " << text_rows << std::endl;
-    }
-    std::cout << "REQUIRED_H: " << max_row_height << " MAX_ROW_H: " << max_row_height << std::endl;
-    std::cout << "===================" << std::endl;
+    // 1. Предварительный расчет максимальной высоты строки таблицы.
+    // Учитывает возможную необходимость переноса строки текста в рамках ячейки таблицы
+    HPDF_REAL max_row_height = CalcMaxColumnHeight(base_row_height, base_column_width, font_size, row_fields);
 
     // 2. Проверка места на странице
     if (cursor_.y - max_row_height < kMargin) { //  kMargin + 2 * kLineSpacing
         try {
             AddNewPage();
+            HPDF_Page_SetFontAndSize(page_, font_, font_size);
             // После создания новой страницы сбрасываем курсор в верхнюю позицию
             cursor_.y = HPDF_Page_GetHeight(page_) - kStartPosY;
 
@@ -202,7 +271,7 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
         }
     }
 
-    // координата Y нижней границы строки с учетом рассчитанной максимальной высоты строки
+    // y_bottom_of_row - координата Y нижней границы строки с учетом рассчитанной максимальной высоты строки
     // (из текущей вертикальной координаты курсора вычитаем максимальную высоту строки)
     const float y_bottom_of_row = cursor_.y - max_row_height;
 
@@ -227,9 +296,16 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
     HPDF_Page_Stroke(page_);
 
     // 4. Добавляем текст
-    x_pos_in_row = kStartPosX;
-    HPDF_Page_SetFontAndSize(page_, font_, kFontSizeTableRow);
+    AddTextToTableRow(max_row_height, font_size, row_fields);
+
+    // 5. Обновляем позицию курсора
+    cursor_.y = y_bottom_of_row;
+}
+
+void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields) {
+    float x_pos_in_row = kStartPosX;
     HPDF_Page_BeginText(page_);
+    HPDF_REAL base_column_width = CalcBaseColumnWidth(row_fields);
 
     for (const auto &field: row_fields) {
         HPDF_REAL text_width = HPDF_Page_TextWidth(page_, field.c_str());
@@ -237,16 +313,16 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
         if (text_width <= (base_column_width - 2 * kLeftRightPadding)) {
             // Однострочный текст
             HPDF_REAL text_x = x_pos_in_row + (base_column_width - text_width) / 2;
-            HPDF_REAL text_y = cursor_.y - max_row_height / 2 - font_size / 3;
+            // для вертикальной позиции выбираем положение по середнине
+            HPDF_REAL text_y = cursor_.y - row_height / 2 - font_size / 3;
             HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
         } else {
             // Многострочный текст
-            HPDF_REAL available_width = base_column_width - 2 * kLeftRightPadding;
-            size_t chars_per_line = field.length() * (available_width / text_width);
+            HPDF_REAL available_width_of_cell = base_column_width - 2 * kLeftRightPadding;
+            size_t chars_per_line = field.length() * (available_width_of_cell / text_width);
 
             HPDF_REAL current_y = cursor_.y - kLeftRightPadding;
             size_t start_pos = 0;
-
             while (start_pos < field.length()) {
                 size_t end_pos = std::min(start_pos + chars_per_line, field.length());
                 std::string line = field.substr(start_pos, end_pos - start_pos);
@@ -255,7 +331,7 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
                 HPDF_REAL text_x = x_pos_in_row + (base_column_width - line_width) / 2;
 
                 HPDF_Page_TextOut(page_, text_x, current_y - font_size, line.c_str());
-                current_y -= kFontSizeTableRow + kFontSizeTableRow/2.0;
+                current_y -= font_size + font_size/2.0;
                 start_pos = end_pos;
             }
         }
@@ -263,7 +339,4 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
     }
 
     HPDF_Page_EndText(page_);
-
-    // 5. Обновляем позицию курсора
-    cursor_.y -= max_row_height;
 }

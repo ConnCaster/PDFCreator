@@ -25,9 +25,8 @@ public:
 
     virtual ~IDocument() = default;
 
-    virtual void AddHeader(const json& header_fields) {};
-    virtual void AddBody() {};
-    virtual void AddFooter() {};
+    virtual void AddText(const json& header_fields) {};
+    virtual void AddTable() {};
 
     virtual void SaveToFile(const std::string& file_path) = 0;
 };
@@ -36,19 +35,33 @@ class PDFDocument : public IDocument {
 public:
     PDFDocument();
 
-    void AddHeader(const json& header_fields) override;
+    void AddText(const json& header_fields) override;
     void AddTable();
     void SaveToFile(const std::string& file_path) override;
 
     ~PDFDocument() override;
 
+#ifdef BUILD_GOOGLE_TEST
+public:
+#else
 private:
+#endif
     void AddNewPage();
-    void SetupFont();
-
     void AddTableRow(HPDF_REAL font_size, const std::vector<std::string>& row_fields = kHeaders_);
 
+    void SetupFont();
+    int CalcTextRowsInCell(const std::string& field_text, size_t chars_per_line);
+    int CalcTextWidthInCell(HPDF_REAL cell_width, HPDF_REAL text_width, int symbols);
+    HPDF_REAL CalcBaseColumnWidth(const std::vector<std::string> &row_fields);
+    HPDF_REAL CalcMaxColumnHeight(HPDF_REAL base_row_height, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
+
+    void AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
+
+#ifdef BUILD_GOOGLE_TEST
+public:
+#else
 private:
+#endif
     HPDF_Doc pdf_;
     HPDF_Page page_;
     HPDF_Font font_;
@@ -57,7 +70,6 @@ private:
         HPDF_REAL x = kStartPosX;
         HPDF_REAL y = kStartPosY;
     } cursor_;
-
 };
 
 #endif
