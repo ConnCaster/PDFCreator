@@ -25,9 +25,9 @@ public:
 
     virtual ~IDocument() = default;
 
-    virtual void AddText(const json& header_fields) {};
-    virtual void AddText(const std::string& text) {};
-    virtual void AddTable() {};
+    virtual void AddJSON(const json& header_fields) = 0;
+    virtual void AddText(const std::string& text) = 0;
+    virtual void AddTable() = 0;
 
     virtual void SaveToFile(const std::string& file_path) = 0;
 };
@@ -36,7 +36,7 @@ class PDFDocument : public IDocument {
 public:
     PDFDocument();
 
-    void AddText(const json& header_fields) override;
+    void AddJSON(const json& header_fields) override;
     void AddText(const std::string& text) override;
     void AddTable();
     void SaveToFile(const std::string& file_path) override;
@@ -75,6 +75,116 @@ private:
         HPDF_REAL x = kStartPosX;
         HPDF_REAL y = kStartPosY;
     } cursor_;
+};
+
+class IBuilder {
+public:
+    virtual ~IBuilder() = default;
+
+    virtual void AddHeader() {};
+    virtual void AddFooter() {};
+
+    virtual void AddJSON(const json& header_fields) {};
+    virtual void AddText(const std::string& text) {};
+    virtual void AddTable() {};
+
+    virtual IDocument* GetDocument() = 0;
+};
+
+class PDFBuilder : public IBuilder {
+public:
+    PDFBuilder() = default;
+    ~PDFBuilder() override = default;
+
+    void AddJSON(const json& header_fields) override {
+        document_.AddJSON(header_fields);
+    };
+
+    void AddText(const std::string& text) override {
+        document_.AddText(text);
+    };
+
+    void AddTable() override {
+        document_.AddTable();
+    };
+
+    IDocument* GetDocument() override {
+        return &document_;
+    };
+private:
+    PDFDocument document_;
+};
+
+class IDirector {
+public:
+    virtual ~IDirector() = default;
+
+    virtual void CreateDocument() = 0;
+    virtual void SetBuilder(IBuilder& builder) = 0;
+};
+
+class PDFDirector : public IDirector {
+public:
+    PDFDirector(IBuilder& builder)
+        : builder_(builder)
+    {};
+    ~PDFDirector() override = default;
+
+    void CreateDocument() override {
+        builder_.AddText("text");
+        builder_.AddTable();
+    };
+
+    void SetBuilder(IBuilder& builder) override {
+        builder_ = builder;
+    };
+private:
+    IBuilder& builder_;
+};
+
+class TestPDFDirector : public IDirector {
+public:
+    TestPDFDirector(IBuilder& builder)
+        : builder_(builder)
+    {};
+    ~TestPDFDirector() override = default;
+
+    void CreateDocument() override {
+        builder_.AddJSON( json::parse(
+        R"(
+            [
+                {"name": "Document", "value": "Annual Report"},
+                {"name": "Author", "value": "Джон Доу"},
+                {"name": "Касперский Endpoint Security", "value": "2023-05-15 @ 10//20\\30;:"},
+                {"name": "Дата", "value": "2023-05-15"}
+            ]
+        )"));
+        builder_.AddText(std::string("\n"));
+        builder_.AddText(std::string("\n"));
+        builder_.AddText(std::string("\n"));
+
+        builder_.AddJSON( json::parse(
+            R"(
+            [
+                {"name": "User-initiator", "value": "dlladmin"},
+                {"name": "Machine", "value": "x86_64"},
+                {"name": "Node name", "value": "astra.DL.LOCAL"},
+                {"name": "System name", "value": "Linux"},
+                {"name": "Version", "value": "#astra2+ci6 SMP PREEMPT_DYNAMIC Fri Oct  6 14:38:42 UTC 2023"},
+                {"name": "SZI version", "value": "5.8.109"},
+                {"name": "Test was started", "value": "04-06-2025@14:22:49"},
+                {"name": "Test was finished", "value": "04-06-2025@14:22:49"},
+                {"name": "Test done", "value": "15/23"},
+                {"name": "Status", "value": "interrupt"}
+            ]
+        )"));
+    };
+
+    void SetBuilder(IBuilder& builder) override {
+        builder_ = builder;
+    };
+private:
+    IBuilder& builder_;
 };
 
 #endif

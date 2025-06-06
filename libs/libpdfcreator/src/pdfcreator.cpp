@@ -36,7 +36,7 @@ PDFDocument::~PDFDocument() {
     HPDF_Free(pdf_);
 }
 
-void PDFDocument::AddText(const json& header_fields) {
+void PDFDocument::AddJSON(const json& header_fields) {
     if (header_fields.empty()) return;
 
     for (const auto &field: header_fields) {

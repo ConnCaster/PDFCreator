@@ -1,11 +1,16 @@
-#include <iostream>
-
 #include "pdfcreator/pdfcreator.h"
 
 int main() {
 
+    PDFBuilder builder;
+    TestPDFDirector test_pdf_director{builder};
+    test_pdf_director.CreateDocument();
+
+    IDocument* pdf_document =  builder.GetDocument();
+
+    /*
     PDFDocument pdf_document{};
-    pdf_document.AddText( json::parse(
+    pdf_document.AddJSON( json::parse(
         R"(
             [
                 {"name": "Document", "value": "Annual Report"},
@@ -18,7 +23,7 @@ int main() {
     pdf_document.AddText(std::string("\n"));
     pdf_document.AddText(std::string("\n"));
 
-    pdf_document.AddText( json::parse(
+    pdf_document.AddJSON( json::parse(
         R"(
             [
                 {"name": "User-initiator", "value": "dlladmin"},
@@ -99,8 +104,8 @@ int main() {
     pdf_document.AddText(std::string("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"));
     pdf_document.AddText(std::string("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"));
 
-    pdf_document.AddTable();
-    pdf_document.SaveToFile("/home/user/dir/PDFCreator/out.pdf");
+    pdf_document.AddTable();*/
+    pdf_document->SaveToFile("/home/user/dir/PDFCreator/out.pdf");
 
     return 0;
 }
