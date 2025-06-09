@@ -7,6 +7,7 @@
 using json = nlohmann::json;
 
 constexpr std::string_view kFont = "Times-Roman";  // шрифт по умолчанию
+constexpr std::string_view kFontPath = "/home/user/dir/PDFCreator/fonts/JetBrainsMonoNL-Regular.ttf";  // путь к шрифту
 constexpr HPDF_REAL kFontSize = 11.0;              // размер шрифта документа
 constexpr HPDF_REAL kFontSizeTableRow = 7.0;       // размер шрифта в строке таблицы
 constexpr HPDF_REAL kLineSpacing = 10.0;           // межстрочный интервал
@@ -27,8 +28,7 @@ public:
 
     virtual void AddJSON(const json& header_fields) = 0;
     virtual void AddText(const std::string& text) = 0;
-    virtual void AddTable() = 0;
-
+    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields) = 0;
     virtual void SaveToFile(const std::string& file_path) = 0;
 };
 
@@ -38,7 +38,7 @@ public:
 
     void AddJSON(const json& header_fields) override;
     void AddText(const std::string& text) override;
-    void AddTable();
+    void AddTableRow(float font_size, const std::vector<std::string>& row_fields) override;
     void SaveToFile(const std::string& file_path) override;
 
     ~PDFDocument() override;
@@ -49,8 +49,6 @@ public:
 private:
 #endif
     void AddNewPage();
-    void AddTableRow(HPDF_REAL font_size, const std::vector<std::string>& row_fields = kHeaders_);
-
     void SetupFont();
 
     int CalcTextRowsInCell(const std::string& field_text, size_t chars_per_line);
@@ -86,7 +84,7 @@ public:
 
     virtual void AddJSON(const json& header_fields) {};
     virtual void AddText(const std::string& text) {};
-    virtual void AddTable() {};
+    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields) {};
 
     virtual IDocument* GetDocument() = 0;
 };
@@ -104,8 +102,8 @@ public:
         document_.AddText(text);
     };
 
-    void AddTable() override {
-        document_.AddTable();
+    void AddTableRow(float font_size, const std::vector<std::string>& row_fields) override {
+        document_.AddTableRow(font_size, row_fields);
     };
 
     IDocument* GetDocument() override {
@@ -132,7 +130,6 @@ public:
 
     void CreateDocument() override {
         builder_.AddText("text");
-        builder_.AddTable();
     };
 
     void SetBuilder(IBuilder& builder) override {
@@ -178,6 +175,105 @@ public:
                 {"name": "Status", "value": "interrupt"}
             ]
         )"));
+        builder_.AddTableRow(kFontSizeTableRow, {
+            "integrity_id",
+            "type_id",
+            "journal_id",
+            "time",
+            "result",
+            "info",
+            "object",
+            "printer",
+            "user_name"
+        });
+        builder_.AddTableRow(8, {
+            "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+            "1234567890",
+            "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+            "0",
+            "12345678901234567890123",
+            "123456789012345",
+            "123456789012345678901234567890123456",
+            "№;%:&*()_+=-",
+            "\"double_quotes\", \'single_quotes\'"
+        });
+        builder_.AddTableRow(8, {
+            "abcdefghijklmnopqrstuvwxyz",
+            "1234567890",
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "0",
+            "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
+            "123456789012345",
+            "123456789012345678901234567890123456",
+            "№;%:&*()_+=-",
+            "\"double_quotes\", \'single_quotes\'"
+        });
+        builder_.AddTableRow(14, {
+            "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+            "1234567890",
+            "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+            "0",
+            "12345678901234567890123",
+            "123456789012345",
+            "123456789012345678901234567890123456",
+            "№;%:&*()_+=-",
+            "\"double_quotes\", \'single_quotes\'"
+        });
+        builder_.AddTableRow(14, {
+            "abcdefghijklmnopqrstuvwxyz",
+            "1234567890",
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "0",
+            "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
+            "123456789012345",
+            "123456789012345678901234567890123456",
+            "№;%:&*()_+=-",
+            "\"double_quotes\", \'single_quotes\'"
+        });
+        builder_.AddTableRow(11, {
+           "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+           "1234567890",
+           "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+           "0",
+           "12345678901234567890123",
+           "123456789012345",
+           "123456789012345678901234567890123456",
+           "№;%:&*()_+=-",
+           "\"double_quotes\", \'single_quotes\'"
+       });
+        builder_.AddTableRow(11, {
+            "abcdefghijklmnopqrstuvwxyz",
+            "1234567890",
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "0",
+            "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
+            "123456789012345",
+            "123456789012345678901234567890123456",
+            "№;%:&*()_+=-",
+            "\"double_quotes\", \'single_quotes\'"
+        });
+            builder_.AddTableRow(18, {
+            "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+            "1234567890",
+            "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+            "0",
+            "12345678901234567890123",
+            "123456789012345",
+            "123456789012345678901234567890123456",
+            "№;%:&*()_+=-",
+            "\"double_quotes\", \'single_quotes\'"
+        });
+        builder_.AddTableRow(18, {
+            "abcdefghijklmnopqrstuvwxyz",
+            "1234567890",
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "0",
+            "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
+            "123456789012345",
+            "123456789012345678901234567890123456",
+            "№;%:&*()_+=-",
+            "\"double_quotes\", \'single_quotes\'"
+        });
     };
 
     void SetBuilder(IBuilder& builder) override {

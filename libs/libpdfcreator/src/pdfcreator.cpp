@@ -184,105 +184,13 @@ void PDFDocument::AddNewPage() {
 
 void PDFDocument::SetupFont() {
     const char *font_name = HPDF_LoadTTFontFromFile(
-        pdf_, "/home/user/dir/PDFCreator/fonts/JetBrainsMonoNL-Regular.ttf", HPDF_TRUE);
+        pdf_, kFontPath.data(), HPDF_TRUE);
     HPDF_UseUTFEncodings(pdf_);
     font_ = HPDF_GetFont(pdf_, font_name, "UTF-8");
     if (!font_) {
         font_ = HPDF_GetFont(pdf_, kFont.data(), nullptr);
     }
     HPDF_Page_SetFontAndSize(page_, font_, kFontSize);
-}
-
-void PDFDocument::AddTable() {
-    AddTableRow(kFontSizeTableRow);
-    AddTableRow(8, {
-        "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
-        "1234567890",
-        "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
-        "0",
-        "12345678901234567890123",
-        "123456789012345",
-        "123456789012345678901234567890123456",
-        "№;%:&*()_+=-",
-        "\"double_quotes\", \'single_quotes\'"
-    });
-    AddTableRow(8, {
-        "abcdefghijklmnopqrstuvwxyz",
-        "1234567890",
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "0",
-        "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
-        "123456789012345",
-        "123456789012345678901234567890123456",
-        "№;%:&*()_+=-",
-        "\"double_quotes\", \'single_quotes\'"
-    });
-    AddTableRow(14, {
-        "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
-        "1234567890",
-        "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
-        "0",
-        "12345678901234567890123",
-        "123456789012345",
-        "123456789012345678901234567890123456",
-        "№;%:&*()_+=-",
-        "\"double_quotes\", \'single_quotes\'"
-    });
-    AddTableRow(14, {
-        "abcdefghijklmnopqrstuvwxyz",
-        "1234567890",
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "0",
-        "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
-        "123456789012345",
-        "123456789012345678901234567890123456",
-        "№;%:&*()_+=-",
-        "\"double_quotes\", \'single_quotes\'"
-    });
-    AddTableRow(11, {
-       "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
-       "1234567890",
-       "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
-       "0",
-       "12345678901234567890123",
-       "123456789012345",
-       "123456789012345678901234567890123456",
-       "№;%:&*()_+=-",
-       "\"double_quotes\", \'single_quotes\'"
-   });
-    AddTableRow(11, {
-        "abcdefghijklmnopqrstuvwxyz",
-        "1234567890",
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "0",
-        "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
-        "123456789012345",
-        "123456789012345678901234567890123456",
-        "№;%:&*()_+=-",
-        "\"double_quotes\", \'single_quotes\'"
-    });
-        AddTableRow(18, {
-        "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
-        "1234567890",
-        "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
-        "0",
-        "12345678901234567890123",
-        "123456789012345",
-        "123456789012345678901234567890123456",
-        "№;%:&*()_+=-",
-        "\"double_quotes\", \'single_quotes\'"
-    });
-    AddTableRow(18, {
-        "abcdefghijklmnopqrstuvwxyz",
-        "1234567890",
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "0",
-        "{\"key_1\": \'value_!\'}, {\'key_2\': \"VALUE_@\"}, {\'key_3\': \"VALUE_#\"}, {\'key_4\': \"VALUE_$\"}",
-        "123456789012345",
-        "123456789012345678901234567890123456",
-        "№;%:&*()_+=-",
-        "\"double_quotes\", \'single_quotes\'"
-    });
 }
 
 /*
