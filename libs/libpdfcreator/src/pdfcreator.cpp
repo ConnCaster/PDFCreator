@@ -1,4 +1,5 @@
 #include "pdfcreator/pdfcreator.h"
+#include "utf8/utf8.h"
 
 #include <iostream>
 
@@ -288,11 +289,20 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
         }
     }
 
+    // 3. Рисуем границы таблицы
     // y_bottom_of_row - координата Y нижней границы строки с учетом рассчитанной максимальной высоты строки
     // (из текущей вертикальной координаты курсора вычитаем максимальную высоту строки)
-    const float y_bottom_of_row = cursor_.y - max_row_height;
+    const float y_bottom_of_row = DrawTableRaw(max_row_height, table_width, base_column_width, row_fields);
 
-    // 3. Рисуем границы таблицы
+    // 4. Добавляем текст
+    AddTextToTableRow(max_row_height, font_size, row_fields);
+
+    // 5. Обновляем позицию курсора
+    cursor_.y = y_bottom_of_row;
+}
+
+HPDF_REAL PDFDocument::DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields) {
+    HPDF_REAL y_bottom_of_row = cursor_.y - max_row_height;
     HPDF_Page_SetLineWidth(page_, kBorderWidth);
 
     // Горизонтальные линии
@@ -311,12 +321,7 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
         if (i < row_fields.size()) x_pos_in_row += base_column_width;
     }
     HPDF_Page_Stroke(page_);
-
-    // 4. Добавляем текст
-    AddTextToTableRow(max_row_height, font_size, row_fields);
-
-    // 5. Обновляем позицию курсора
-    cursor_.y = y_bottom_of_row;
+    return y_bottom_of_row;
 }
 
 void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields) {
@@ -324,32 +329,56 @@ void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, c
     HPDF_Page_BeginText(page_);
     HPDF_REAL base_column_width = CalcBaseColumnWidth(row_fields);
 
-    for (const auto &field: row_fields) {
+    for (const auto &field : row_fields) {
         HPDF_REAL text_width = HPDF_Page_TextWidth(page_, field.c_str());
 
         if (text_width <= (base_column_width - 2 * kLeftRightPadding)) {
             // Однострочный текст
-            HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding; /*+ (base_column_width - text_width) / 2*/;
-            // для вертикальной позиции выбираем положение по середнине
+            HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
             HPDF_REAL text_y = cursor_.y - row_height / 2 - font_size / 3;
             HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
         } else {
             // Многострочный текст
             HPDF_REAL available_width_of_cell = base_column_width - 2 * kLeftRightPadding;
-            size_t chars_per_line = field.length() * (available_width_of_cell / text_width);
 
+            // Начинаем с начала строки
+            auto it = field.begin();
             HPDF_REAL current_y = cursor_.y - kLeftRightPadding;
-            size_t start_pos = 0;
-            while (start_pos < field.length()) {
-                size_t end_pos = std::min(start_pos + chars_per_line, field.length());
-                std::string line = field.substr(start_pos, end_pos - start_pos);
 
-                HPDF_REAL line_width = HPDF_Page_TextWidth(page_, line.c_str());
-                HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding; /*(base_column_width - line_width) / 2*/;
+            while (it != field.end()) {
+                // Находим конец строки, которая влезает в доступную ширину
+                auto line_start = it;
+                auto line_end = it;
+                HPDF_REAL current_width = 0.0;
 
+                while (line_end != field.end()) {
+                    // Получаем следующий символ UTF-8
+                    auto next_it = line_end;
+                    utf8::next(next_it, field.end());
+                    std::string char_str(line_end, next_it); // Копируем символ
+
+                    HPDF_REAL char_width = HPDF_Page_TextWidth(page_, char_str.c_str());
+
+                    if (current_width + char_width > available_width_of_cell) {
+                        break; // Превысили доступную ширину
+                    }
+
+                    current_width += char_width;
+                    line_end = next_it;
+                }
+
+                // Если не удалось добавить ни одного символа (очень узкая колонка)
+                if (line_start == line_end) {
+                    utf8::next(line_end, field.end()); // Принудительно берём хотя бы один символ
+                }
+
+                // Формируем подстроку
+                std::string line(line_start, line_end);
+                HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
                 HPDF_Page_TextOut(page_, text_x, current_y - font_size, line.c_str());
-                current_y -= font_size + font_size/2.0;
-                start_pos = end_pos;
+
+                current_y -= font_size + font_size / 2.0;
+                it = line_end;
             }
         }
         x_pos_in_row += base_column_width;

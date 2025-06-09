@@ -43,11 +43,7 @@ public:
 
     ~PDFDocument() override;
 
-#ifdef BUILD_GOOGLE_TEST
-public:
-#else
 private:
-#endif
     void AddNewPage();
     void SetupFont();
 
@@ -55,16 +51,16 @@ private:
     int CalcTextWidthInCell(HPDF_REAL cell_width, HPDF_REAL text_width, int symbols);
     HPDF_REAL CalcBaseColumnWidth(const std::vector<std::string> &row_fields);
     HPDF_REAL CalcMaxColumnHeight(HPDF_REAL base_row_height, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
+
+    // для создания строки таблицы
+    HPDF_REAL DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields);
     void AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
 
+    // для работы с текстом вне таблицы
     void PrintTextWithWrap(const std::string& text);
     void ProcessWord(std::string& word, std::string& current_line, std::vector<std::string>& lines, HPDF_REAL available_width);
 
-#ifdef BUILD_GOOGLE_TEST
-public:
-#else
 private:
-#endif
     HPDF_Doc pdf_;
     HPDF_Page page_;
     HPDF_Font font_;
@@ -189,6 +185,17 @@ public:
             "Требуется новый пароль",
             "Требуется новый пароль",
             "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль"
+        });
+        builder_.AddTableRow(kFontSizeTableRow, {
+            "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
+            "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
+            "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz",
+            "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ",
             "Требуется новый пароль",
             "Требуется новый пароль",
             "Требуется новый пароль",
