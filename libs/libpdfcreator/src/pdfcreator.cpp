@@ -3,7 +3,7 @@
 #include <iostream>
 
 const std::vector<std::string> IDocument::kHeaders_ = {
-    "integrity_id",
+    "integrityid",
     "type_id",
     "journal_id",
     "time",

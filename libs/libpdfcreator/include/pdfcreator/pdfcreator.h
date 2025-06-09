@@ -157,8 +157,6 @@ public:
             ]
         )"));
         builder_.AddText(std::string("\n"));
-        builder_.AddText(std::string("\n"));
-        builder_.AddText(std::string("\n"));
 
         builder_.AddJSON( json::parse(
             R"(
@@ -176,6 +174,52 @@ public:
             ]
         )"));
         builder_.AddTableRow(kFontSizeTableRow, {
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль"
+        });
+        builder_.AddTableRow(kFontSizeTableRow, {
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль",
+            "Требуется новый пароль"
+        });
+
+        builder_.AddTableRow(kFontSizeTableRow, {
+            "integrity_id",
+            "type_id",
+            "journal_id",
+            "time",
+            "result",
+            "info",
+            "object",
+            "printer",
+            "user_name"
+        });
+        builder_.AddTableRow(kFontSizeTableRow, {
+            "integrity_idintegrity_id",
+            "type_id",
+            "journal_id",
+            "time",
+            "result",
+            "info",
+            "object",
+            "printer",
+            "user_name"
+        });
+
+        /*builder_.AddTableRow(kFontSizeTableRow, {
             "integrity_id",
             "type_id",
             "journal_id",
@@ -273,7 +317,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });
+        });*/
     };
 
     void SetBuilder(IBuilder& builder) override {
