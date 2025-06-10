@@ -3,16 +3,16 @@
 
 #include <iostream>
 
-const std::vector<std::string> IDocument::kHeaders_ = {
-    "integrityid",
-    "type_id",
-    "journal_id",
-    "time",
-    "result",
-    "info",
-    "object",
-    "printer",
-    "user_name"
+const std::vector<std::string> TestPDFDirector::kHeaders_ = {
+    "ID",
+    "Тип события",
+    "Журнал",
+    "Время",
+    "Результат",
+    "Информация",
+    "Объект",
+    "Принтер",
+    "Пользователь"
 };
 
 PDFDocument::PDFDocument() {
@@ -334,12 +334,10 @@ void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, c
 
         if (text_width <= (base_column_width - 2 * kLeftRightPadding)) {
             // Однострочный текст
-            HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
-            HPDF_REAL text_y = cursor_.y - row_height / 2 - font_size / 3;
-            HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
+            AddSingleLineTextInCell(x_pos_in_row, row_height, font_size, field);
         } else {
             // Многострочный текст
-            AddMultilineTextInCell(x_pos_in_row, base_column_width, font_size, field);
+            AddMultilineTextInCell(x_pos_in_row, base_column_width, row_height, font_size, field);
         }
         x_pos_in_row += base_column_width;
     }
@@ -347,13 +345,66 @@ void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, c
 }
 
 void PDFDocument::AddSingleLineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const {
-    // Однострочный текст
     HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
     HPDF_REAL text_y = cursor_.y - row_height / 2 - font_size / 3;
     HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
 }
 
-void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const {
+void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const {
+    HPDF_REAL available_width_of_cell = base_column_width - 2 * kLeftRightPadding;
+    HPDF_REAL line_height = font_size * 1.2; // Высота одной строки текста с небольшим отступом
+
+    // Временный расчет количества строк
+    std::vector<std::string> lines;
+    auto it = field.begin();
+    while (it != field.end()) {
+        auto line_start = it;
+        auto line_end = it;
+        HPDF_REAL current_width = 0.0;
+
+        while (line_end != field.end()) {
+            auto next_it = line_end;
+            utf8::next(next_it, field.end());
+            std::string char_str(line_end, next_it);
+
+            HPDF_REAL char_width = HPDF_Page_TextWidth(page_, char_str.c_str());
+
+            if (current_width + char_width > available_width_of_cell) {
+                break;
+            }
+
+            current_width += char_width;
+            line_end = next_it;
+        }
+
+        if (line_start == line_end) {
+            utf8::next(line_end, field.end());
+        }
+
+        lines.emplace_back(line_start, line_end);
+        it = line_end;
+    }
+
+    // Вычисляем стартовую позицию Y для вертикального центрирования
+    HPDF_REAL total_text_height = lines.size() * line_height;
+    HPDF_REAL start_y = cursor_.y - (row_height - total_text_height) / 2.0 - font_size;
+
+    // Проверяем, чтобы текст не выходил за нижнюю границу ячейки
+    HPDF_REAL min_y = cursor_.y - row_height + font_size;
+    if (start_y < min_y) {
+        start_y = min_y;
+    }
+
+    // Рисуем текст
+    HPDF_REAL current_y = start_y;
+    for (const auto& line : lines) {
+        HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
+        HPDF_Page_TextOut(page_, text_x, current_y, line.c_str());
+        current_y -= line_height;
+    }
+}
+
+/*void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const {
     HPDF_REAL available_width_of_cell = base_column_width - 2 * kLeftRightPadding;
     // Начинаем с начала строки
     auto it = field.begin();
@@ -394,4 +445,4 @@ void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_
         current_y -= font_size + font_size / 2.0;
         it = line_end;
     }
-}
+}*/

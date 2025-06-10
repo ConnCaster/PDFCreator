@@ -22,8 +22,6 @@ constexpr HPDF_REAL kLeftRightPadding = 4.0;       // "заполнитель" �
 
 class IDocument {
 public:
-    static const std::vector<std::string> kHeaders_;
-
     virtual ~IDocument() = default;
 
     virtual void AddJSON(const json& header_fields) = 0;
@@ -55,7 +53,8 @@ private:
     // для создания строки таблицы
     HPDF_REAL DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields) const;
     void AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
-    void AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const;
+    void AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const;
+    // void AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const;
     void AddSingleLineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const;
 
     // для работы с текстом вне таблицы
@@ -171,6 +170,7 @@ public:
                 {"name": "Status", "value": "interrupt"}
             ]
         )"));
+        builder_.AddTableRow(kFontSizeTableRow, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(kFontSizeTableRow, {
             "Требуется новый пароль",
             "Требуется новый пароль",
@@ -228,7 +228,7 @@ public:
             "user_name"
         });
 
-        /*builder_.AddTableRow(kFontSizeTableRow, {
+        builder_.AddTableRow(kFontSizeTableRow, {
             "integrity_id",
             "type_id",
             "journal_id",
@@ -326,7 +326,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });*/
+        });
     };
 
     void SetBuilder(IBuilder& builder) override {
@@ -334,6 +334,7 @@ public:
     };
 private:
     IBuilder& builder_;
+    static const std::vector<std::string> kHeaders_;
 };
 
 #endif
