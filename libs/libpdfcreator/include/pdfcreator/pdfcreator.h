@@ -26,7 +26,8 @@ public:
 
     virtual void AddJSON(const json& header_fields) = 0;
     virtual void AddText(const std::string& text) = 0;
-    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields) = 0;
+    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers) = 0;
+    virtual void AddTableHeaders(float font_size, const std::vector<std::string>& headers) = 0;
     virtual void SaveToFile(const std::string& file_path) = 0;
 };
 
@@ -36,7 +37,8 @@ public:
 
     void AddJSON(const json& header_fields) override;
     void AddText(const std::string& text) override;
-    void AddTableRow(float font_size, const std::vector<std::string>& row_fields) override;
+    void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers) override;
+    void AddTableHeaders(float font_size, const std::vector<std::string>& headers) override;
     void SaveToFile(const std::string& file_path) override;
 
     ~PDFDocument() override;
@@ -81,7 +83,8 @@ public:
 
     virtual void AddJSON(const json& header_fields) {};
     virtual void AddText(const std::string& text) {};
-    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields) {};
+    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers) {};
+    virtual void AddTableHeaders(float font_size, const std::vector<std::string>& headers) {};
 
     virtual IDocument* GetDocument() = 0;
 };
@@ -99,8 +102,12 @@ public:
         document_.AddText(text);
     };
 
-    void AddTableRow(float font_size, const std::vector<std::string>& row_fields) override {
-        document_.AddTableRow(font_size, row_fields);
+    void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers) override {
+        document_.AddTableRow(font_size, row_fields, headers);
+    };
+
+    void AddTableHeaders(float font_size, const std::vector<std::string>& headers) override {
+        document_.AddTableHeaders(font_size, headers);
     };
 
     IDocument* GetDocument() override {
@@ -170,7 +177,7 @@ public:
                 {"name": "Status", "value": "interrupt"}
             ]
         )"));
-        builder_.AddTableRow(kFontSizeTableRow, TestPDFDirector::kHeaders_);
+        builder_.AddTableRow(kFontSizeTableRow, TestPDFDirector::kHeaders_, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(kFontSizeTableRow, {
             "Требуется новый пароль",
             "Требуется новый пароль",
@@ -181,7 +188,7 @@ public:
             "Требуется новый пароль",
             "Требуется новый пароль",
             "Требуется новый пароль"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(kFontSizeTableRow, {
             "Требуется новый пароль",
             "Требуется новый пароль",
@@ -192,7 +199,7 @@ public:
             "Требуется новый пароль",
             "Требуется новый пароль",
             "Требуется новый пароль"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(kFontSizeTableRow, {
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
             "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
@@ -203,7 +210,7 @@ public:
             "Требуется новый пароль",
             "Требуется новый пароль",
             "Требуется новый пароль"
-        });
+        }, TestPDFDirector::kHeaders_);
 
         builder_.AddTableRow(kFontSizeTableRow, {
             "integrity_id",
@@ -215,7 +222,7 @@ public:
             "object",
             "printer",
             "user_name"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(kFontSizeTableRow, {
             "integrity_idintegrity_id",
             "type_id",
@@ -226,7 +233,7 @@ public:
             "object",
             "printer",
             "user_name"
-        });
+        }, TestPDFDirector::kHeaders_);
 
         builder_.AddTableRow(kFontSizeTableRow, {
             "integrity_id",
@@ -238,7 +245,7 @@ public:
             "object",
             "printer",
             "user_name"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(8, {
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
             "1234567890",
@@ -249,7 +256,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(8, {
             "abcdefghijklmnopqrstuvwxyz",
             "1234567890",
@@ -260,7 +267,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(14, {
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
             "1234567890",
@@ -271,7 +278,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(14, {
             "abcdefghijklmnopqrstuvwxyz",
             "1234567890",
@@ -282,7 +289,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(11, {
            "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
            "1234567890",
@@ -293,7 +300,7 @@ public:
            "123456789012345678901234567890123456",
            "№;%:&*()_+=-",
            "\"double_quotes\", \'single_quotes\'"
-       });
+       }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(11, {
             "abcdefghijklmnopqrstuvwxyz",
             "1234567890",
@@ -304,7 +311,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });
+        }, TestPDFDirector::kHeaders_);
             builder_.AddTableRow(18, {
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
             "1234567890",
@@ -315,7 +322,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });
+        }, TestPDFDirector::kHeaders_);
         builder_.AddTableRow(18, {
             "abcdefghijklmnopqrstuvwxyz",
             "1234567890",
@@ -326,7 +333,7 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        });
+        }, TestPDFDirector::kHeaders_);
     };
 
     void SetBuilder(IBuilder& builder) override {

@@ -254,7 +254,42 @@ HPDF_REAL PDFDocument::CalcMaxColumnHeight(HPDF_REAL base_row_height, HPDF_REAL 
     return max_row_height;
 }
 
-void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string> &row_fields) {
+void PDFDocument::AddTableHeaders(float font_size, const std::vector<std::string>& headers) {
+    HPDF_Page_SetFontAndSize(page_, font_, font_size);
+
+    // Параметры таблицы:
+    // ширина страницы
+    HPDF_REAL page_width = HPDF_Page_GetWidth(page_);
+    // ширина таблицы на странице (ширина страницы без левого и правого отступа от краев)
+    HPDF_REAL table_width = page_width - 2 * kMargin;
+    // ширина столбца в таблице
+    // TODO: динамическая ширина столбца
+    HPDF_REAL base_column_width = CalcBaseColumnWidth(headers);
+    // высота строки по умолчанию - размер шрифтра и еще полразмера сверху и снизу
+    HPDF_REAL base_row_height = font_size * 2;
+
+    // 1. Предварительный расчет максимальной высоты строки таблицы.
+    // Учитывает возможную необходимость переноса строки текста в рамках ячейки таблицы
+    HPDF_REAL max_row_height = CalcMaxColumnHeight(base_row_height, base_column_width, font_size, headers);
+
+    // 2. Проверка места на странице
+    if (cursor_.y - max_row_height < kMargin) {
+        throw std::runtime_error(std::string("Failed to add table headers"));
+    }
+
+    // 3. Рисуем границы таблицы
+    // y_bottom_of_row - координата Y нижней границы строки с учетом рассчитанной максимальной высоты строки
+    // (из текущей вертикальной координаты курсора вычитаем максимальную высоту строки)
+    const float y_bottom_of_row = DrawTableRaw(max_row_height, table_width, base_column_width, headers);
+
+    // 4. Добавляем текст
+    AddTextToTableRow(max_row_height, font_size, headers);
+
+    // 5. Обновляем позицию курсора
+    cursor_.y = y_bottom_of_row;
+}
+
+void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string> &row_fields, const std::vector<std::string> &headers) {
     HPDF_Page_SetFontAndSize(page_, font_, font_size);
 
     // Параметры таблицы:
@@ -279,7 +314,7 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
             HPDF_Page_SetFontAndSize(page_, font_, font_size);
             // После создания новой страницы сбрасываем курсор в верхнюю позицию
             cursor_.y = HPDF_Page_GetHeight(page_) - kStartPosY;
-
+            AddTableHeaders(font_size, headers);
             // Если даже после создания страницы не хватает места - ошибка
             if (cursor_.y - max_row_height < kMargin) {
                 throw std::runtime_error("Header row is too large for the page");
