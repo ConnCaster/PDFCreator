@@ -225,7 +225,7 @@ int PDFDocument::CalcTextRowsInCell(const std::string& field_text, size_t chars_
  *  Расчет базовой ширины ячейки таблицы при условии, что все ячейки имеют одинаковую ширину
  *  row_fields - вектор строк с текстом каждой ячейки в строке
  */
-HPDF_REAL PDFDocument::CalcBaseColumnWidth(const std::vector<std::string> &row_fields) {
+HPDF_REAL PDFDocument::CalcBaseColumnWidth(const std::vector<std::string> &row_fields) const {
     return (HPDF_Page_GetWidth(page_) - 2 * kMargin) / row_fields.size();
 }
 
@@ -301,7 +301,7 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
     cursor_.y = y_bottom_of_row;
 }
 
-HPDF_REAL PDFDocument::DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields) {
+HPDF_REAL PDFDocument::DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields) const {
     HPDF_REAL y_bottom_of_row = cursor_.y - max_row_height;
     HPDF_Page_SetLineWidth(page_, kBorderWidth);
 
@@ -339,50 +339,59 @@ void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, c
             HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
         } else {
             // Многострочный текст
-            HPDF_REAL available_width_of_cell = base_column_width - 2 * kLeftRightPadding;
-
-            // Начинаем с начала строки
-            auto it = field.begin();
-            HPDF_REAL current_y = cursor_.y - kLeftRightPadding;
-
-            while (it != field.end()) {
-                // Находим конец строки, которая влезает в доступную ширину
-                auto line_start = it;
-                auto line_end = it;
-                HPDF_REAL current_width = 0.0;
-
-                while (line_end != field.end()) {
-                    // Получаем следующий символ UTF-8
-                    auto next_it = line_end;
-                    utf8::next(next_it, field.end());
-                    std::string char_str(line_end, next_it); // Копируем символ
-
-                    HPDF_REAL char_width = HPDF_Page_TextWidth(page_, char_str.c_str());
-
-                    if (current_width + char_width > available_width_of_cell) {
-                        break; // Превысили доступную ширину
-                    }
-
-                    current_width += char_width;
-                    line_end = next_it;
-                }
-
-                // Если не удалось добавить ни одного символа (очень узкая колонка)
-                if (line_start == line_end) {
-                    utf8::next(line_end, field.end()); // Принудительно берём хотя бы один символ
-                }
-
-                // Формируем подстроку
-                std::string line(line_start, line_end);
-                HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
-                HPDF_Page_TextOut(page_, text_x, current_y - font_size, line.c_str());
-
-                current_y -= font_size + font_size / 2.0;
-                it = line_end;
-            }
+            AddMultilineTextInCell(x_pos_in_row, base_column_width, font_size, field);
         }
         x_pos_in_row += base_column_width;
     }
-
     HPDF_Page_EndText(page_);
+}
+
+void PDFDocument::AddSingleLineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const {
+    // Однострочный текст
+    HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
+    HPDF_REAL text_y = cursor_.y - row_height / 2 - font_size / 3;
+    HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
+}
+
+void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const {
+    HPDF_REAL available_width_of_cell = base_column_width - 2 * kLeftRightPadding;
+    // Начинаем с начала строки
+    auto it = field.begin();
+    HPDF_REAL current_y = cursor_.y - kLeftRightPadding;
+
+    while (it != field.end()) {
+        // Находим конец строки, которая влезает в доступную ширину
+        auto line_start = it;
+        auto line_end = it;
+        HPDF_REAL current_width = 0.0;
+
+        while (line_end != field.end()) {
+            // Получаем следующий символ UTF-8
+            auto next_it = line_end;
+            utf8::next(next_it, field.end());
+            std::string char_str(line_end, next_it); // Копируем символ
+
+            HPDF_REAL char_width = HPDF_Page_TextWidth(page_, char_str.c_str());
+
+            if (current_width + char_width > available_width_of_cell) {
+                break; // Превысили доступную ширину
+            }
+
+            current_width += char_width;
+            line_end = next_it;
+        }
+
+        // Если не удалось добавить ни одного символа (очень узкая колонка)
+        if (line_start == line_end) {
+            utf8::next(line_end, field.end()); // Принудительно берём хотя бы один символ
+        }
+
+        // Формируем подстроку
+        std::string line(line_start, line_end);
+        HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
+        HPDF_Page_TextOut(page_, text_x, current_y - font_size, line.c_str());
+
+        current_y -= font_size + font_size / 2.0;
+        it = line_end;
+    }
 }

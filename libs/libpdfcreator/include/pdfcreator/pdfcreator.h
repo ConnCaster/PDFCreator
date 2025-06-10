@@ -49,12 +49,14 @@ private:
 
     int CalcTextRowsInCell(const std::string& field_text, size_t chars_per_line);
     int CalcTextWidthInCell(HPDF_REAL cell_width, HPDF_REAL text_width, int symbols);
-    HPDF_REAL CalcBaseColumnWidth(const std::vector<std::string> &row_fields);
+    HPDF_REAL CalcBaseColumnWidth(const std::vector<std::string> &row_fields) const;
     HPDF_REAL CalcMaxColumnHeight(HPDF_REAL base_row_height, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
 
     // для создания строки таблицы
-    HPDF_REAL DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields);
+    HPDF_REAL DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields) const;
     void AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
+    void AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const;
+    void AddSingleLineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const;
 
     // для работы с текстом вне таблицы
     void PrintTextWithWrap(const std::string& text);
