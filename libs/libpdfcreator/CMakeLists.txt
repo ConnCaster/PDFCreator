@@ -8,10 +8,14 @@ find_library(LIBHARU
 )
 target_link_libraries(pdfcreator ${LIBHARU})
 
-target_include_directories(pdfcreator
-        PRIVATE
+list(APPEND PDF_Creator_HEADERS
         ${PROJECT_SOURCE_DIR}/3rd_party/libharu/include
         ${PROJECT_SOURCE_DIR}/3rd_party/
 
         include/
+)
+
+target_include_directories(pdfcreator
+        PRIVATE
+       ${PDF_Creator_HEADERS}
 )
