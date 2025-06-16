@@ -1,19 +1,6 @@
 #include "pdfcreator/pdfcreator.h"
 #include "utf8/utf8.h"
 
-#include <iostream>
-
-const std::vector<std::string> TestPDFDirector::kHeaders_ = {
-    "ID",
-    "Тип события",
-    "Журнал",
-    "Время",
-    "Результат",
-    "Информация",
-    "Объект",
-    "Принтер",
-    "Пользователь"
-};
 
 PDFDocument::PDFDocument() {
     pdf_ = HPDF_New(nullptr, nullptr);
@@ -42,7 +29,6 @@ void PDFDocument::AddJSON(const json& header_fields) {
 
     for (const auto &field: header_fields) {
         if (cursor_.y < kMargin) {
-            std::cout << "Создание новой страницы" << std::endl;
             try {
                 AddNewPage();
             } catch (std::exception &e) {
@@ -59,7 +45,6 @@ void PDFDocument::AddText(const std::string& text) {
     if (text.empty()) return;
 
     if (cursor_.y < kMargin) {
-        std::cout << "Создание новой страницы" << std::endl;
         try {
             AddNewPage();
         } catch (std::exception &e) {
@@ -315,6 +300,7 @@ void PDFDocument::AddTableRow(HPDF_REAL font_size, const std::vector<std::string
             // После создания новой страницы сбрасываем курсор в верхнюю позицию
             cursor_.y = HPDF_Page_GetHeight(page_) - kStartPosY;
             AddTableHeaders(font_size, headers);
+
             // Если даже после создания страницы не хватает места - ошибка
             if (cursor_.y - max_row_height < kMargin) {
                 throw std::runtime_error("Header row is too large for the page");
@@ -366,20 +352,23 @@ void PDFDocument::AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, c
 
     for (const auto &field : row_fields) {
         HPDF_REAL text_width = HPDF_Page_TextWidth(page_, field.c_str());
-
         if (text_width <= (base_column_width - 2 * kLeftRightPadding)) {
             // Однострочный текст
-            AddSingleLineTextInCell(x_pos_in_row, row_height, font_size, field);
+            HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
+            HPDF_REAL text_y = cursor_.y - row_height / 2 - font_size / 3;
+            HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
         } else {
             // Многострочный текст
             AddMultilineTextInCell(x_pos_in_row, base_column_width, row_height, font_size, field);
         }
         x_pos_in_row += base_column_width;
     }
+
     HPDF_Page_EndText(page_);
 }
 
 void PDFDocument::AddSingleLineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const {
+    // Однострочный текст
     HPDF_REAL text_x = x_pos_in_row + kLeftRightPadding;
     HPDF_REAL text_y = cursor_.y - row_height / 2 - font_size / 3;
     HPDF_Page_TextOut(page_, text_x, text_y, field.c_str());
@@ -439,7 +428,8 @@ void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_
     }
 }
 
-/*void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const {
+/*
+void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const {
     HPDF_REAL available_width_of_cell = base_column_width - 2 * kLeftRightPadding;
     // Начинаем с начала строки
     auto it = field.begin();
@@ -480,4 +470,5 @@ void PDFDocument::AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_
         current_y -= font_size + font_size / 2.0;
         it = line_end;
     }
-}*/
+}
+*/
