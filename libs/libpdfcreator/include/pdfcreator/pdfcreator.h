@@ -56,7 +56,6 @@ private:
     HPDF_REAL DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields) const;
     void AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
     void AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const;
-    // void AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::string& field) const;
     void AddSingleLineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const;
 
     // для работы с текстом вне таблицы
@@ -106,7 +105,7 @@ public:
         document_.AddTableRow(font_size, row_fields, headers);
     };
 
-    void AddTableHeaders(float font_size, const std::vector<std::string>& headers) override {
+    void AddTableHeaders(float font_size, const std::vector<std::string>& headers) {
         document_.AddTableHeaders(font_size, headers);
     };
 

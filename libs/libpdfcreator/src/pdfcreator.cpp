@@ -1,6 +1,17 @@
 #include "pdfcreator/pdfcreator.h"
 #include "utf8/utf8.h"
 
+const std::vector<std::string> TestPDFDirector::kHeaders_ = {
+    "ID",
+    "Тип события",
+    "Журнал",
+    "Время",
+    "Результат",
+    "Информация",
+    "Объект",
+    "Принтер",
+    "Пользователь"
+};
 
 PDFDocument::PDFDocument() {
     pdf_ = HPDF_New(nullptr, nullptr);
