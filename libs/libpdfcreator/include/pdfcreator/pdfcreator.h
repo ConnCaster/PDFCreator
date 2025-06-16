@@ -26,8 +26,8 @@ public:
 
     virtual void AddJSON(const json& header_fields) = 0;
     virtual void AddText(const std::string& text) = 0;
-    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers) = 0;
-    virtual void AddTableHeaders(float font_size, const std::vector<std::string>& headers) = 0;
+    virtual void AddTableRow(float font_size, const std::vector<std::string> &row_fields, const std::vector<std::string> &headers, const std::vector<HPDF_REAL> &column_widths) = 0;
+    virtual void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<HPDF_REAL> &column_widths) = 0;
     virtual void SaveToFile(const std::string& file_path) = 0;
 };
 
@@ -37,8 +37,8 @@ public:
 
     void AddJSON(const json& header_fields) override;
     void AddText(const std::string& text) override;
-    void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers) override;
-    void AddTableHeaders(float font_size, const std::vector<std::string>& headers) override;
+    void AddTableRow(float font_size, const std::vector<std::string> &row_fields, const std::vector<std::string> &headers, const std::vector<HPDF_REAL> &column_widths) override;
+    void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<HPDF_REAL> &column_widths) override;
     void SaveToFile(const std::string& file_path) override;
 
     ~PDFDocument() override;
@@ -51,10 +51,15 @@ private:
     int CalcTextWidthInCell(HPDF_REAL cell_width, HPDF_REAL text_width, int symbols);
     HPDF_REAL CalcBaseColumnWidth(const std::vector<std::string> &row_fields) const;
     HPDF_REAL CalcMaxColumnHeight(HPDF_REAL base_row_height, HPDF_REAL base_column_width, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
+    HPDF_REAL CalcMaxColumnHeight(HPDF_REAL base_row_height, const std::vector<HPDF_REAL> &column_widths, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
+    size_t CalculateTextLines(const std::string& text, HPDF_REAL available_width) const;
 
     // для создания строки таблицы
-    HPDF_REAL DrawTableRaw(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields) const;
-    void AddTextToTableRow(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields);
+    HPDF_REAL DrawTableRawBaseWidth(HPDF_REAL max_row_height, HPDF_REAL table_width, HPDF_REAL base_column_width, const std::vector<std::string> &row_fields) const;
+    HPDF_REAL DrawTableRawDynWidth(HPDF_REAL max_row_height, HPDF_REAL table_width, const std::vector<HPDF_REAL> &column_widths, const std::vector<std::string> &row_fields) const;
+    void AddTextToTableRowBaseWidth(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields) const;
+    void AddTextToTableRowDynWidth(HPDF_REAL row_height, HPDF_REAL font_size, const std::vector<std::string> &row_fields, const std::vector<HPDF_REAL> &column_widths) const;
+
     void AddMultilineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL base_column_width, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const;
     void AddSingleLineTextInCell(HPDF_REAL x_pos_in_row, HPDF_REAL row_height, HPDF_REAL font_size, const std::string& field) const;
 
@@ -82,8 +87,8 @@ public:
 
     virtual void AddJSON(const json& header_fields) {};
     virtual void AddText(const std::string& text) {};
-    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers) {};
-    virtual void AddTableHeaders(float font_size, const std::vector<std::string>& headers) {};
+    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers, const std::vector<HPDF_REAL> &column_widths){};
+    virtual void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<HPDF_REAL> &column_widths) {};
 
     virtual IDocument* GetDocument() = 0;
 };
@@ -101,12 +106,12 @@ public:
         document_.AddText(text);
     };
 
-    void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers) override {
-        document_.AddTableRow(font_size, row_fields, headers);
-    };
+    void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers, const std::vector<HPDF_REAL> &column_widths) override {
+        document_.AddTableRow(font_size, row_fields, headers, column_widths);
+    }
 
-    void AddTableHeaders(float font_size, const std::vector<std::string>& headers) {
-        document_.AddTableHeaders(font_size, headers);
+    void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<HPDF_REAL> &column_widths) {
+        document_.AddTableHeaders(font_size, headers, column_widths);
     };
 
     IDocument* GetDocument() override {
@@ -176,7 +181,21 @@ public:
                 {"name": "Status", "value": "interrupt"}
             ]
         )"));
-        builder_.AddTableRow(kFontSizeTableRow, TestPDFDirector::kHeaders_, TestPDFDirector::kHeaders_);
+
+        std::vector<HPDF_REAL> column_widths = {
+            35,   // ID
+            75,   // Тип события
+            65,   // Журнал
+            60,   // Время
+            50,   // Результат
+            100,  // Информация (гибкий, но с минимальной шириной)
+            70,   // Объект
+            50,   // Принтер
+            50    // Пользователь
+        };
+        builder_.AddTableHeaders(kFontSizeTableRow,
+            TestPDFDirector::kHeaders_,
+            column_widths);
         builder_.AddTableRow(kFontSizeTableRow, {
             "Требуется новый пароль",
             "Требуется новый пароль",
@@ -187,7 +206,8 @@ public:
             "Требуется новый пароль",
             "Требуется новый пароль",
             "Требуется новый пароль"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
         builder_.AddTableRow(kFontSizeTableRow, {
             "Требуется новый пароль",
             "Требуется новый пароль",
@@ -198,7 +218,7 @@ public:
             "Требуется новый пароль",
             "Требуется новый пароль",
             "Требуется новый пароль"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_, {});
         builder_.AddTableRow(kFontSizeTableRow, {
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
             "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
@@ -209,7 +229,8 @@ public:
             "Требуется новый пароль",
             "Требуется новый пароль",
             "Требуется новый пароль"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
 
         builder_.AddTableRow(kFontSizeTableRow, {
             "integrity_id",
@@ -221,7 +242,8 @@ public:
             "object",
             "printer",
             "user_name"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
         builder_.AddTableRow(kFontSizeTableRow, {
             "integrity_idintegrity_id",
             "type_id",
@@ -232,7 +254,8 @@ public:
             "object",
             "printer",
             "user_name"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
 
         builder_.AddTableRow(kFontSizeTableRow, {
             "integrity_id",
@@ -244,7 +267,7 @@ public:
             "object",
             "printer",
             "user_name"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_, {});
         builder_.AddTableRow(8, {
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
             "1234567890",
@@ -255,7 +278,8 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
         builder_.AddTableRow(8, {
             "abcdefghijklmnopqrstuvwxyz",
             "1234567890",
@@ -266,7 +290,8 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
         builder_.AddTableRow(14, {
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
             "1234567890",
@@ -277,7 +302,8 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
         builder_.AddTableRow(14, {
             "abcdefghijklmnopqrstuvwxyz",
             "1234567890",
@@ -288,7 +314,8 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
         builder_.AddTableRow(11, {
            "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
            "1234567890",
@@ -299,7 +326,8 @@ public:
            "123456789012345678901234567890123456",
            "№;%:&*()_+=-",
            "\"double_quotes\", \'single_quotes\'"
-       }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
         builder_.AddTableRow(11, {
             "abcdefghijklmnopqrstuvwxyz",
             "1234567890",
@@ -310,8 +338,9 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        }, TestPDFDirector::kHeaders_);
-            builder_.AddTableRow(18, {
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
+        builder_.AddTableRow(17, {
             "абвгдеёжзийклмнопрстуфхцчшщъыьэюя",
             "1234567890",
             "АБВГДЕЁЖЗИЙКЛМОПРСТУФХЦЧШЩЪЫЬЭЮЯ",
@@ -321,8 +350,9 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        }, TestPDFDirector::kHeaders_);
-        builder_.AddTableRow(18, {
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
+        builder_.AddTableRow(17, {
             "abcdefghijklmnopqrstuvwxyz",
             "1234567890",
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -332,7 +362,8 @@ public:
             "123456789012345678901234567890123456",
             "№;%:&*()_+=-",
             "\"double_quotes\", \'single_quotes\'"
-        }, TestPDFDirector::kHeaders_);
+        }, TestPDFDirector::kHeaders_,
+        column_widths);
     };
 
     void SetBuilder(IBuilder& builder) override {
