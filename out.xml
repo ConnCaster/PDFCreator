@@ -91,6 +91,122 @@
 						<text:p>Пользователь</text:p>
 					</table:table-cell>
 				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string">
+						<text:p>{&amp;quot;key&amp;quot;: &amp;quot;value&amp;quot;}</text:p>
+					</table:table-cell>
+					<table:table-cell office:value-type="string">
+						<text:p>{&amp;quot;key&amp;quot;: &amp;quot;value&amp;quot;}</text:p>
+					</table:table-cell>
+					<table:table-cell office:value-type="string">
+						<text:p>{&amp;quot;key&amp;quot;: &amp;quot;value&amp;quot;}</text:p>
+					</table:table-cell>
+					<table:table-cell office:value-type="string">
+						<text:p>{&amp;quot;key&amp;quot;: &amp;quot;value&amp;quot;}</text:p>
+					</table:table-cell>
+				</table:table-row>
+			</table:table>
+			<table:table table:name="Automatic testing of IPS functions">
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>User-initiator: dlladmin</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Machine: x86_64</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Node name: astra.DL.LOCAL</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>System name: Linux</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Version: #astra2+ci6 SMP PREEMPT_DYNAMIC Fri Oct  6 14:38:42 UTC 2023</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>SZI version: 5.8.109</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Test was started: 04-06-2025@14:22:49</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Test was finished: 04-06-2025@14:22:49</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Test done: 15/23</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Status: interrupt</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>User-initiator: dlladmin</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Machine: x86_64</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Node name: astra.DL.LOCAL</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>System name: Linux</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Version: #astra2+ci6 SMP PREEMPT_DYNAMIC Fri Oct  6 14:38:42 UTC 2023</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>SZI version: 5.8.109</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Test was started: 04-06-2025@14:22:49</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Test was finished: 04-06-2025@14:22:49</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Test done: 15/23</text:p>
+					</table:table-cell>
+				</table:table-row>
+				<table:table-row>
+					<table:table-cell office:value-type="string" table:number-columns-spanned="4">
+						<text:p>Status: interrupt</text:p>
+					</table:table-cell>
+				</table:table-row>
 			</table:table>
 		</office:spreadsheet>
 	</office:body>

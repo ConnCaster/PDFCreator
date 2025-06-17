@@ -83,10 +83,6 @@ private:
 
 public:
     XmlDocument() {
-        // Создаем декларацию XML и корневой элемент
-        // doc_.InsertEndChild(doc_.NewDeclaration());
-        // current_parent_ = doc_.NewElement("document");
-        // doc_.InsertEndChild(current_parent_);
         doc_.load_string(kXMLContent.data());
         spreadsheet_ = doc_.select_node("//office:spreadsheet").node();
     }
@@ -128,37 +124,32 @@ public:
     ~XmlDocument() override = default;
 
     void AddJSON(const json& header_fields) override {
-        // Добавляем JSON-данные как отдельный элемент
-        // XMLElement* jsonElement = doc_.NewElement("metadata");
-        // current_parent_->InsertEndChild(jsonElement);
-        //
-        // for (auto& [key, value] : header_fields.items()) {
-        //     XMLElement* field = doc_.NewElement(key.c_str());
-        //     if (value.is_string()) {
-        //         field->SetText(EscapeXml(value.get<std::string>()).c_str());
-        //     } else {
-        //         field->SetText(EscapeXml(value.dump()).c_str());
-        //     }
-        //     jsonElement->InsertEndChild(field);
-        // }
+        if (!in_table_) {
+            in_table_ = true;
+            current_table_ = spreadsheet_.append_child("table:table");
+            current_table_.append_attribute("table:name").set_value("Automatic testing of IPS functions");
+            for (auto& header : header_fields) {
+                xml_node row = current_table_.append_child("table:table-row");
+                xml_node cell = row.append_child("table:table-cell");
+                cell.append_attribute("office:value-type").set_value("string");
+                cell.append_attribute("table:number-columns-spanned").set_value(4);
+                cell.append_child("text:p").text().set(header.at("name").get<std::string>()+ ": " + header.at("value").get<std::string>());
+            }
+        } else {
+            for (auto& header : header_fields) {
+                xml_node row = current_table_.append_child("table:table-row");
+                xml_node cell = row.append_child("table:table-cell");
+                cell.append_attribute("office:value-type").set_value("string");
+                cell.append_attribute("table:number-columns-spanned").set_value(4);
+                cell.append_child("text:p").text().set(header.at("name").get<std::string>()+ ": " + header.at("value").get<std::string>());
+            }
+        }
     }
 
-    void AddText(const std::string& text) override {
-        // if (in_table_) {
-        //     // Если внутри таблицы, добавляем текст в текущую ячейку
-        //     XMLElement* cell = doc_.NewElement("cell");
-        //     cell->SetText(EscapeXml(text).c_str());
-        //     current_parent_->InsertEndChild(cell);
-        // } else {
-        //     // Обычный текстовый параграф
-        //     XMLElement* paragraph = doc_.NewElement("paragraph");
-        //     paragraph->SetText(EscapeXml(text).c_str());
-        //     current_parent_->InsertEndChild(paragraph);
-        // }
-    }
+    void AddText(const std::string& text) override {}
 
     void SaveToFile(const std::string& file_path) override {
-        auto res = doc_.save_file(file_path.c_str());
+        doc_.save_file(file_path.c_str());
     }
 };
 
