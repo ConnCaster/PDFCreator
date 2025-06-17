@@ -3,6 +3,7 @@ add_library(pdfcreator STATIC
         src/xmlcreator.cpp
 
         include/tinyxml/tinyxml2.cpp
+        include/pugixml/pugixml.cpp
         include/pdfcreator/interfaces/IDirector.h
 )
 
@@ -20,6 +21,7 @@ list(APPEND PDF_Creator_HEADERS
 
         include/
         include/tinyxml/
+        include/pugixml/
 )
 
 target_include_directories(pdfcreator

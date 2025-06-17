@@ -8,6 +8,20 @@ int main() {
     test_xml_director.CreateDocument();
 
     IDocument* xml_document =  builder.GetDocument();
+    try {
+        xml_document->AddTableHeaders(10, kHeaders_, {});
+
+        xml_document->AddTableRow(10, kHeaders_, {}, {});
+        xml_document->AddTableRow(10, kHeaders_, {}, {});
+
+        dynamic_cast<XmlDocument*>(xml_document)->EndTable();
+        xml_document->AddTableRow(10, kHeaders_, {}, {});
+
+    } catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
+
+
     xml_document->SaveToFile("/home/user/dir/PDFCreator/out.xml");
 
     // PDFBuilder builder;

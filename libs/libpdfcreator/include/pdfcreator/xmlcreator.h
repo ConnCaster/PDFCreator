@@ -1,15 +1,18 @@
 #ifndef XMLCREATOR_H
 #define XMLCREATOR_H
 
+#include <iostream>
 #include <json.hpp>
 #include <tinyxml/tinyxml2.h>
 
+#include "../../../../deps/pugixml-1.15/src/pugixml.hpp"
 #include "interfaces/IDocument.h"
 #include "interfaces/IBuilder.h"
 #include "interfaces/IDirector.h"
 
 using json = nlohmann::json;
 using namespace tinyxml2;
+using namespace pugi;
 
 const std::string mimetype_start = "application/vnd.oasis.opendocument.spreadsheet";
 const std::string stylesxml_start = "<?xml version='1.0' encoding='UTF-8'?>\n<office:document-styles xmlns:text=\"urn:oasis:names:tc:opendocument:xmlns:text:1.0\" xmlns:table=\"urn:oasis:names:tc:opendocument:xmlns:table:1.0\" xmlns:office=\"urn:oasis:names:tc:opendocument:xmlns:office:1.0\" xmlns:manifest=\"urn:oasis:names:tc:opendocument:xmlns:manifest:1.0\" xmlns:meta=\"urn:oasis:names:tc:opendocument:xmlns:meta:1.0\" office:version=\"1.1\"><office:styles/><office:automatic-styles></office:automatic-styles></office:document-styles>";
@@ -38,13 +41,26 @@ constexpr std::string_view kXMLTable =
                                 "   </table:table-row>"
                                 "</table:table>";
 
+const std::vector<std::string> kHeaders_ = {
+    "ID",
+    "Тип события",
+    "Журнал",
+    "Время",
+    "Результат",
+    "Информация",
+    "Объект",
+    "Принтер",
+    "Пользователь"
+};
+
 class XmlDocument : public IDocument {
 private:
-    XMLDocument doc_;
-    XMLElement* current_parent_;
-    XMLElement* current_table_ = nullptr;
+    xml_document doc_;
+    xml_node spreadsheet_;
+
     bool in_table_ = false;
-    bool has_headers_ = false;
+    xml_node current_table_;
+
 
     // Вспомогательная функция для экранирования XML-специальных символов
     std::string EscapeXml(const std::string& input) {
@@ -71,100 +87,78 @@ public:
         // doc_.InsertEndChild(doc_.NewDeclaration());
         // current_parent_ = doc_.NewElement("document");
         // doc_.InsertEndChild(current_parent_);
-        doc_.Parse(kXMLContent.data());
+        doc_.load_string(kXMLContent.data());
+        spreadsheet_ = doc_.select_node("//office:spreadsheet").node();
+    }
+
+    void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<float>& column_widths) override {
+        if (!in_table_) {
+            in_table_ = true;
+            current_table_ = spreadsheet_.append_child("table:table");
+            current_table_.append_attribute("table:name").set_value("Sheet 1");
+
+            xml_node row = current_table_.append_child("table:table-row");
+            for (auto& header : headers) {
+                xml_node cell = row.append_child("table:table-cell");
+                cell.append_attribute("office:value-type").set_value("string");
+                cell.append_child("text:p").text().set(header);
+            }
+        } else {
+            throw std::runtime_error("Headers can be appended to existing table only once");
+        }
+    }
+
+    void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string>& headers, const std::vector<float>& column_widths) override {
+        if (!in_table_) {
+            throw std::runtime_error("Row in table can be appended to xml-document only if headers exists");
+        }
+        xml_node row = current_table_.append_child("table:table-row");
+        for (auto& field : row_fields) {
+            xml_node cell = row.append_child("table:table-cell");
+            cell.append_attribute("office:value-type").set_value("string");
+            cell.append_child("text:p").text().set(EscapeXml(field));
+        }
+    }
+
+    void EndTable() {
+        in_table_ = false;
+        current_table_ = {};
     }
 
     ~XmlDocument() override = default;
 
     void AddJSON(const json& header_fields) override {
         // Добавляем JSON-данные как отдельный элемент
-        XMLElement* jsonElement = doc_.NewElement("metadata");
-        current_parent_->InsertEndChild(jsonElement);
-
-        for (auto& [key, value] : header_fields.items()) {
-            XMLElement* field = doc_.NewElement(key.c_str());
-            if (value.is_string()) {
-                field->SetText(EscapeXml(value.get<std::string>()).c_str());
-            } else {
-                field->SetText(EscapeXml(value.dump()).c_str());
-            }
-            jsonElement->InsertEndChild(field);
-        }
+        // XMLElement* jsonElement = doc_.NewElement("metadata");
+        // current_parent_->InsertEndChild(jsonElement);
+        //
+        // for (auto& [key, value] : header_fields.items()) {
+        //     XMLElement* field = doc_.NewElement(key.c_str());
+        //     if (value.is_string()) {
+        //         field->SetText(EscapeXml(value.get<std::string>()).c_str());
+        //     } else {
+        //         field->SetText(EscapeXml(value.dump()).c_str());
+        //     }
+        //     jsonElement->InsertEndChild(field);
+        // }
     }
 
     void AddText(const std::string& text) override {
-        if (in_table_) {
-            // Если внутри таблицы, добавляем текст в текущую ячейку
-            XMLElement* cell = doc_.NewElement("cell");
-            cell->SetText(EscapeXml(text).c_str());
-            current_parent_->InsertEndChild(cell);
-        } else {
-            // Обычный текстовый параграф
-            XMLElement* paragraph = doc_.NewElement("paragraph");
-            paragraph->SetText(EscapeXml(text).c_str());
-            current_parent_->InsertEndChild(paragraph);
-        }
-    }
-
-    void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<float>& column_widths) override {
-        // Создаем элемент таблицы, если его еще нет
-        if (!in_table_) {
-            current_table_ = doc_.NewElement("table");
-            current_parent_->InsertEndChild(current_table_);
-            in_table_ = true;
-            has_headers_ = true;
-        }
-
-        // Добавляем строку заголовков
-        XMLElement* headerRow = doc_.NewElement("header_row");
-        headerRow->SetAttribute("font_size", font_size);
-        current_table_->InsertEndChild(headerRow);
-
-        // Добавляем ячейки заголовков
-        for (size_t i = 0; i < headers.size(); ++i) {
-            XMLElement* headerCell = doc_.NewElement("header_cell");
-            if (i < column_widths.size()) {
-                headerCell->SetAttribute("width", column_widths[i]);
-            }
-            headerCell->SetText(EscapeXml(headers[i]).c_str());
-            headerRow->InsertEndChild(headerCell);
-        }
-
-        // Устанавливаем текущий родитель для последующих строк
-        current_parent_ = current_table_;
-    }
-
-    void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string>& headers, const std::vector<float>& column_widths) override {
-        // Если таблица еще не создана, создаем ее
-        if (!in_table_) {
-            current_table_ = doc_.NewElement("table");
-            current_parent_->InsertEndChild(current_table_);
-            in_table_ = true;
-        }
-
-        // Если есть заголовки, но они еще не добавлены, добавляем их
-        if (!headers.empty() && !has_headers_) {
-            AddTableHeaders(font_size, headers, column_widths);
-        }
-
-        // Добавляем строку данных
-        XMLElement* row = doc_.NewElement("row");
-        row->SetAttribute("font_size", font_size);
-        current_table_->InsertEndChild(row);
-
-        // Добавляем ячейки данных
-        for (size_t i = 0; i < row_fields.size(); ++i) {
-            XMLElement* cell = doc_.NewElement("cell");
-            if (i < column_widths.size()) {
-                cell->SetAttribute("width", column_widths[i]);
-            }
-            cell->SetText(EscapeXml(row_fields[i]).c_str());
-            row->InsertEndChild(cell);
-        }
+        // if (in_table_) {
+        //     // Если внутри таблицы, добавляем текст в текущую ячейку
+        //     XMLElement* cell = doc_.NewElement("cell");
+        //     cell->SetText(EscapeXml(text).c_str());
+        //     current_parent_->InsertEndChild(cell);
+        // } else {
+        //     // Обычный текстовый параграф
+        //     XMLElement* paragraph = doc_.NewElement("paragraph");
+        //     paragraph->SetText(EscapeXml(text).c_str());
+        //     current_parent_->InsertEndChild(paragraph);
+        // }
     }
 
     void SaveToFile(const std::string& file_path) override {
-        auto res = doc_.SaveFile(file_path.c_str());
+        auto res = doc_.save_file(file_path.c_str());
     }
 };
 
