@@ -4,6 +4,10 @@
 #include <hpdf.h>
 #include <json.hpp>
 
+#include "interfaces/IDocument.h"
+#include "interfaces/IBuilder.h"
+#include "interfaces/IDirector.h"
+
 using json = nlohmann::json;
 
 constexpr std::string_view kFont = "Times-Roman";  // шрифт по умолчанию
@@ -18,18 +22,6 @@ constexpr HPDF_REAL kMargin = 20;                  // размер вообра�
 
 constexpr HPDF_REAL kBorderWidth = 0.5;            // толщина линии рамки таблицы
 constexpr HPDF_REAL kLeftRightPadding = 4.0;       // "заполнитель" слева и справа текста, который не дает ему прилипнуть к рамке
-
-
-class IDocument {
-public:
-    virtual ~IDocument() = default;
-
-    virtual void AddJSON(const json& header_fields) = 0;
-    virtual void AddText(const std::string& text) = 0;
-    virtual void AddTableRow(float font_size, const std::vector<std::string> &row_fields, const std::vector<std::string> &headers, const std::vector<HPDF_REAL> &column_widths) = 0;
-    virtual void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<HPDF_REAL> &column_widths) = 0;
-    virtual void SaveToFile(const std::string& file_path) = 0;
-};
 
 class PDFDocument : public IDocument {
 public:
@@ -78,21 +70,6 @@ private:
     } cursor_;
 };
 
-class IBuilder {
-public:
-    virtual ~IBuilder() = default;
-
-    virtual void AddHeader() {};
-    virtual void AddFooter() {};
-
-    virtual void AddJSON(const json& header_fields) {};
-    virtual void AddText(const std::string& text) {};
-    virtual void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers, const std::vector<HPDF_REAL> &column_widths){};
-    virtual void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<HPDF_REAL> &column_widths) {};
-
-    virtual IDocument* GetDocument() = 0;
-};
-
 class PDFBuilder : public IBuilder {
 public:
     PDFBuilder() = default;
@@ -119,14 +96,6 @@ public:
     };
 private:
     PDFDocument document_;
-};
-
-class IDirector {
-public:
-    virtual ~IDirector() = default;
-
-    virtual void CreateDocument() = 0;
-    virtual void SetBuilder(IBuilder& builder) = 0;
 };
 
 class PDFDirector : public IDirector {

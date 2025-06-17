@@ -1,4 +1,10 @@
-add_library(pdfcreator STATIC src/pdfcreator.cpp)
+add_library(pdfcreator STATIC
+        src/pdfcreator.cpp
+        src/xmlcreator.cpp
+
+        include/tinyxml/tinyxml2.cpp
+        include/pdfcreator/interfaces/IDirector.h
+)
 
 find_library(LIBHARU
         NAMES libhpdf hpdf
@@ -13,6 +19,7 @@ list(APPEND PDF_Creator_HEADERS
         ${PROJECT_SOURCE_DIR}/3rd_party/
 
         include/
+        include/tinyxml/
 )
 
 target_include_directories(pdfcreator
