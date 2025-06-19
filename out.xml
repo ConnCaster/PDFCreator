@@ -1,36 +1,40 @@
 <?xml version="1.0"?>
 <office:document-content xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" office:version="1.1">
-	<office:automatic-styles />
+	<office:automatic-styles>
+		<style:style style:name="font_size_10" style:family="text">
+			<style:text-properties fo:font-size="10.000000pt" />
+		</style:style>
+	</office:automatic-styles>
 	<office:body>
 		<office:spreadsheet>
 			<table:table table:name="Sheet 1">
 				<table:table-row>
 					<table:table-cell office:value-type="string">
-						<text:p>ID</text:p>
+						<text:p text:style-name="font_size_10">ID</text:p>
 					</table:table-cell>
 					<table:table-cell office:value-type="string">
-						<text:p>Тип события</text:p>
+						<text:p text:style-name="font_size_10">Тип события</text:p>
 					</table:table-cell>
 					<table:table-cell office:value-type="string">
-						<text:p>Журнал</text:p>
+						<text:p text:style-name="font_size_10">Журнал</text:p>
 					</table:table-cell>
 					<table:table-cell office:value-type="string">
-						<text:p>Время</text:p>
+						<text:p text:style-name="font_size_10">Время</text:p>
 					</table:table-cell>
 					<table:table-cell office:value-type="string">
-						<text:p>Результат</text:p>
+						<text:p text:style-name="font_size_10">Результат</text:p>
 					</table:table-cell>
 					<table:table-cell office:value-type="string">
-						<text:p>Информация</text:p>
+						<text:p text:style-name="font_size_10">Информация</text:p>
 					</table:table-cell>
 					<table:table-cell office:value-type="string">
-						<text:p>Объект</text:p>
+						<text:p text:style-name="font_size_10">Объект</text:p>
 					</table:table-cell>
 					<table:table-cell office:value-type="string">
-						<text:p>Принтер</text:p>
+						<text:p text:style-name="font_size_10">Принтер</text:p>
 					</table:table-cell>
 					<table:table-cell office:value-type="string">
-						<text:p>Пользователь</text:p>
+						<text:p text:style-name="font_size_10">Пользователь</text:p>
 					</table:table-cell>
 				</table:table-row>
 				<table:table-row>
