@@ -61,7 +61,7 @@ private:
     std::string EscapeXml(const std::string& input);
     std::string AddFontStyle(float font_size);
 
-private:
+protected:
     xml_document doc_;
     xml_node spreadsheet_;
 
@@ -118,6 +118,103 @@ public:
             }, {}, {});
 
             dynamic_cast<XmlDocument*>(builder_.GetDocument())->EndTable();
+            builder_.AddJSON(json::parse(
+                R"(
+                [
+                    {"name": "User-initiator", "value": "dlladmin"},
+                    {"name": "Machine", "value": "x86_64"},
+                    {"name": "Node name", "value": "astra.DL.LOCAL"},
+                    {"name": "System name", "value": "Linux"},
+                    {"name": "Version", "value": "#astra2+ci6 SMP PREEMPT_DYNAMIC Fri Oct  6 14:38:42 UTC 2023"},
+                    {"name": "SZI version", "value": "5.8.109"},
+                    {"name": "Test was started", "value": "04-06-2025@14:22:49"},
+                    {"name": "Test was finished", "value": "04-06-2025@14:22:49"},
+                    {"name": "Test done", "value": "15/23"},
+                    {"name": "Status", "value": "interrupt"}
+                ]
+            )"));
+            builder_.AddJSON(json::parse(
+                R"(
+                [
+                    {"name": "User-initiator", "value": "dlladmin"},
+                    {"name": "Machine", "value": "x86_64"},
+                    {"name": "Node name", "value": "astra.DL.LOCAL"},
+                    {"name": "System name", "value": "Linux"},
+                    {"name": "Version", "value": "#astra2+ci6 SMP PREEMPT_DYNAMIC Fri Oct  6 14:38:42 UTC 2023"},
+                    {"name": "SZI version", "value": "5.8.109"},
+                    {"name": "Test was started", "value": "04-06-2025@14:22:49"},
+                    {"name": "Test was finished", "value": "04-06-2025@14:22:49"},
+                    {"name": "Test done", "value": "15/23"},
+                    {"name": "Status", "value": "interrupt"}
+                ]
+            )"));
+        } catch (std::exception& e) {
+            std::cout << e.what() << std::endl;
+        }
+    };
+
+    void SetBuilder(IBuilder& builder) override {
+        builder_ = builder;
+    };
+private:
+    IBuilder& builder_;
+    static const std::vector<std::string> kHeaders_;
+};
+
+class OdsDocument : public XmlDocument {
+public:
+    void SaveToFile(const std::string& file_path) override;
+};
+
+class ODSBuilder : public IBuilder {
+public:
+    ODSBuilder() = default;
+    ~ODSBuilder() override = default;
+
+    void AddJSON(const json& header_fields) override {
+        document_.AddJSON(header_fields);
+    };
+
+    void AddText(const std::string& text) override {
+        document_.AddText(text);
+    };
+
+    void AddTableRow(float font_size, const std::vector<std::string>& row_fields, const std::vector<std::string> &headers, const std::vector<float> &column_widths) override {
+        document_.AddTableRow(font_size, row_fields, headers, column_widths);
+    }
+
+    void AddTableHeaders(float font_size, const std::vector<std::string>& headers, const std::vector<float> &column_widths) override {
+        document_.AddTableHeaders(font_size, headers, column_widths);
+    };
+
+    IDocument* GetDocument() override {
+        return &document_;
+    };
+private:
+    OdsDocument document_;
+};
+
+class TestODSDirector : public IDirector {
+public:
+    TestODSDirector(IBuilder& builder)
+        : builder_(builder)
+    {};
+    ~TestODSDirector() override = default;
+
+    void CreateDocument() override {
+        try {
+            builder_.AddTableHeaders(10, kHeaders_, {});
+
+            builder_.AddTableRow(20, kHeaders_, {}, {});
+            builder_.AddTableRow(10, kHeaders_, {}, {});
+            builder_.AddTableRow(10, {
+                R"({"key": "value"})",
+                R"({"key": "value"})",
+                R"({"key": "value"})",
+                R"({"key": "value"})"
+            }, {}, {});
+
+            // dynamic_cast<XmlDocument*>(builder_.GetDocument())->EndTable();
             builder_.AddJSON(json::parse(
                 R"(
                 [

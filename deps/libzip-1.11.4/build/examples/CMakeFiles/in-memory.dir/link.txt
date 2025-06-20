@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/in-memory.dir/link.d "CMakeFiles/in-memory.dir/in-memory.c.o" -o in-memory  -Wl,-rpath,/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/lib ../lib/libzip.so.5.5

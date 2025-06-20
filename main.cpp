@@ -3,11 +3,11 @@
 
 int main() {
 
-    XMLBuilder builder;
-    TestXMLDirector test_xml_director{builder};
-    test_xml_director.CreateDocument();
-    IDocument* xml_document =  builder.GetDocument();
-    xml_document->SaveToFile("/home/user/dir/PDFCreator/out.xml");
+    ODSBuilder builder;
+    TestODSDirector director{builder};
+    director.CreateDocument();
+    IDocument* document =  builder.GetDocument();
+    document->SaveToFile("/home/user/dir/PDFCreator/out.ods");
 
     // PDFBuilder builder;
     // TestPDFDirector test_pdf_director{builder};

@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/autoclose-archive.dir/link.d "CMakeFiles/autoclose-archive.dir/autoclose-archive.c.o" -o autoclose-archive  -Wl,-rpath,/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/lib ../lib/libzip.so.5.5

@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/cmake_install.cmake",
+		"/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/lib/cmake_install.cmake",
+		"/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/man/cmake_install.cmake",
+		"/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/src/cmake_install.cmake",
+		"/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/ossfuzz/cmake_install.cmake",
+		"/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/examples/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

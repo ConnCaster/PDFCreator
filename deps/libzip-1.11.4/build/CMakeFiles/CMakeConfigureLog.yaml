@@ -1,0 +1,2932 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      The system is: Linux - 6.12.28-1-MANJARO - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/4.0.2-dirty/CompilerIdC/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:8 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-UjsFyN"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-UjsFyN"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-UjsFyN'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_76e73/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_76e73.dir/build.make CMakeFiles/cmTC_76e73.dir/build
+        make[1]: Entering directory '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-UjsFyN'
+        Building C object CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        Target: x86_64-pc-linux-gnu
+        Configured with: /build/gcc/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 15.1.1 20250425 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_76e73.dir/'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_76e73.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccTJajwN.s
+        GNU C23 (GCC) version 15.1.1 20250425 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 15.1.1 20250425, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../x86_64-pc-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include
+         /usr/local/include
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include-fixed
+         /usr/include
+        End of search list.
+        Compiler executable checksum: 335c205337bb594afdc1dd844ba56be5
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_76e73.dir/'
+         as -v --64 -o CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o /tmp/ccTJajwN.s
+        GNU assembler version 2.44.0 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.44.0
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_76e73
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76e73.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: /build/gcc/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 15.1.1 20250425 (GCC) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_76e73' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_76e73.'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cctdELmn.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_76e73 /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crtn.o
+        collect2 version 15.1.1 20250425
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cctdELmn.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_76e73 /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crtn.o
+        GNU ld (GNU Binutils) 2.44.0
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_76e73' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_76e73.'
+        /usr/bin/cc  -v -Wl,-v CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o -o cmTC_76e73
+        make[1]: Leaving directory '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-UjsFyN'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:191 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include]
+          add: [/usr/local/include]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include-fixed]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include-fixed] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include-fixed]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include;/usr/local/include;/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include-fixed;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-UjsFyN']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_76e73/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_76e73.dir/build.make CMakeFiles/cmTC_76e73.dir/build]
+        ignore line: [make[1]: Entering directory '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-UjsFyN']
+        ignore line: [Building C object CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /build/gcc/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 15.1.1 20250425 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_76e73.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_76e73.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/ccTJajwN.s]
+        ignore line: [GNU C23 (GCC) version 15.1.1 20250425 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 15.1.1 20250425  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include-fixed]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 335c205337bb594afdc1dd844ba56be5]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_76e73.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o /tmp/ccTJajwN.s]
+        ignore line: [GNU assembler version 2.44.0 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.44.0]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_76e73]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_76e73.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /build/gcc/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 15.1.1 20250425 (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_76e73' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_76e73.']
+        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cctdELmn.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_76e73 /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crtn.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/cctdELmn.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_76e73] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crti.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../..]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crtn.o]
+        ignore line: [collect2 version 15.1.1 20250425]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cctdELmn.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_76e73 /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_76e73.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crtn.o]
+        linker tool for 'C': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib/crtn.o] ==> [/usr/lib/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/../../..] ==> [/usr/lib]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/usr/lib/Scrt1.o;/usr/lib/crti.o;/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o;/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtendS.o;/usr/lib/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1;/usr/lib;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:270 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:8 (project)"
+    message: |
+      Running the C compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils) 2.44.0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFiles.cmake:141 (try_compile)"
+      - "CMakeLists.txt:46 (check_include_files)"
+    checks:
+      - "Looking for include file CommonCrypto/CommonCrypto.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7AuMdi"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7AuMdi"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "COMMONCRYPTO_FOUND"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7AuMdi'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b0d27/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_b0d27.dir/build.make CMakeFiles/cmTC_b0d27.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7AuMdi»
+        Building C object CMakeFiles/cmTC_b0d27.dir/COMMONCRYPTO_FOUND.c.o
+        /usr/bin/cc    -o CMakeFiles/cmTC_b0d27.dir/COMMONCRYPTO_FOUND.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7AuMdi/COMMONCRYPTO_FOUND.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7AuMdi/COMMONCRYPTO_FOUND.c:2:10: фатальная ошибка: CommonCrypto/CommonCrypto.h: Нет такого файла или каталога
+            2 | #include <CommonCrypto/CommonCrypto.h>
+              |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        компиляция прервана.
+        make[1]: *** [CMakeFiles/cmTC_b0d27.dir/build.make:81: CMakeFiles/cmTC_b0d27.dir/COMMONCRYPTO_FOUND.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7AuMdi»
+        make: *** [Makefile:134: cmTC_b0d27/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:100 (check_function_exists)"
+    checks:
+      - "Looking for _close"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-e5kEzg"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-e5kEzg"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__CLOSE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-e5kEzg'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cded0/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_cded0.dir/build.make CMakeFiles/cmTC_cded0.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-e5kEzg»
+        Building C object CMakeFiles/cmTC_cded0.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_close -o CMakeFiles/cmTC_cded0.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-e5kEzg/CheckFunctionExists.c
+        Linking C executable cmTC_cded0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cded0.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_cded0.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_close'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_close CMakeFiles/cmTC_cded0.dir/CheckFunctionExists.c.o -o cmTC_cded0
+        make[1]: *** [CMakeFiles/cmTC_cded0.dir/build.make:102: cmTC_cded0] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-e5kEzg»
+        make: *** [Makefile:134: cmTC_cded0/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:101 (check_function_exists)"
+    checks:
+      - "Looking for _dup"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-NYP0TZ"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-NYP0TZ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__DUP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-NYP0TZ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c77a0/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_c77a0.dir/build.make CMakeFiles/cmTC_c77a0.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-NYP0TZ»
+        Building C object CMakeFiles/cmTC_c77a0.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_dup -o CMakeFiles/cmTC_c77a0.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-NYP0TZ/CheckFunctionExists.c
+        Linking C executable cmTC_c77a0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c77a0.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_c77a0.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_dup'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_dup CMakeFiles/cmTC_c77a0.dir/CheckFunctionExists.c.o -o cmTC_c77a0
+        make[1]: *** [CMakeFiles/cmTC_c77a0.dir/build.make:102: cmTC_c77a0] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-NYP0TZ»
+        make: *** [Makefile:134: cmTC_c77a0/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:102 (check_function_exists)"
+    checks:
+      - "Looking for _fdopen"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-akclj0"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-akclj0"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__FDOPEN"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-akclj0'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_74959/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_74959.dir/build.make CMakeFiles/cmTC_74959.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-akclj0»
+        Building C object CMakeFiles/cmTC_74959.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_fdopen -o CMakeFiles/cmTC_74959.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-akclj0/CheckFunctionExists.c
+        Linking C executable cmTC_74959
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74959.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_74959.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_fdopen'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_fdopen CMakeFiles/cmTC_74959.dir/CheckFunctionExists.c.o -o cmTC_74959
+        make[1]: *** [CMakeFiles/cmTC_74959.dir/build.make:102: cmTC_74959] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-akclj0»
+        make: *** [Makefile:134: cmTC_74959/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:103 (check_function_exists)"
+    checks:
+      - "Looking for _fileno"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-bc2qCp"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-bc2qCp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__FILENO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-bc2qCp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4109f/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_4109f.dir/build.make CMakeFiles/cmTC_4109f.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-bc2qCp»
+        Building C object CMakeFiles/cmTC_4109f.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_fileno -o CMakeFiles/cmTC_4109f.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-bc2qCp/CheckFunctionExists.c
+        Linking C executable cmTC_4109f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4109f.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_4109f.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_fileno'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_fileno CMakeFiles/cmTC_4109f.dir/CheckFunctionExists.c.o -o cmTC_4109f
+        make[1]: *** [CMakeFiles/cmTC_4109f.dir/build.make:102: cmTC_4109f] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-bc2qCp»
+        make: *** [Makefile:134: cmTC_4109f/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:104 (check_function_exists)"
+    checks:
+      - "Looking for _fseeki64"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jWq2jB"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jWq2jB"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__FSEEKI64"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jWq2jB'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_216a0/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_216a0.dir/build.make CMakeFiles/cmTC_216a0.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jWq2jB»
+        Building C object CMakeFiles/cmTC_216a0.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_fseeki64 -o CMakeFiles/cmTC_216a0.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jWq2jB/CheckFunctionExists.c
+        Linking C executable cmTC_216a0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_216a0.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_216a0.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_fseeki64'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_fseeki64 CMakeFiles/cmTC_216a0.dir/CheckFunctionExists.c.o -o cmTC_216a0
+        make[1]: *** [CMakeFiles/cmTC_216a0.dir/build.make:102: cmTC_216a0] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jWq2jB»
+        make: *** [Makefile:134: cmTC_216a0/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:105 (check_function_exists)"
+    checks:
+      - "Looking for _fstat64"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xz8vyK"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xz8vyK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__FSTAT64"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xz8vyK'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4fb33/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_4fb33.dir/build.make CMakeFiles/cmTC_4fb33.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xz8vyK»
+        Building C object CMakeFiles/cmTC_4fb33.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_fstat64 -o CMakeFiles/cmTC_4fb33.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xz8vyK/CheckFunctionExists.c
+        Linking C executable cmTC_4fb33
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4fb33.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_4fb33.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_fstat64'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_fstat64 CMakeFiles/cmTC_4fb33.dir/CheckFunctionExists.c.o -o cmTC_4fb33
+        make[1]: *** [CMakeFiles/cmTC_4fb33.dir/build.make:102: cmTC_4fb33] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xz8vyK»
+        make: *** [Makefile:134: cmTC_4fb33/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:106 (check_function_exists)"
+    checks:
+      - "Looking for _setmode"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-GCcOvc"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-GCcOvc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__SETMODE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-GCcOvc'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_53573/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_53573.dir/build.make CMakeFiles/cmTC_53573.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-GCcOvc»
+        Building C object CMakeFiles/cmTC_53573.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_setmode -o CMakeFiles/cmTC_53573.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-GCcOvc/CheckFunctionExists.c
+        Linking C executable cmTC_53573
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53573.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_53573.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_setmode'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_setmode CMakeFiles/cmTC_53573.dir/CheckFunctionExists.c.o -o cmTC_53573
+        make[1]: *** [CMakeFiles/cmTC_53573.dir/build.make:102: cmTC_53573] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-GCcOvc»
+        make: *** [Makefile:134: cmTC_53573/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:107 (check_function_exists)"
+    checks:
+      - "Looking for _stat64"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BniDzi"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BniDzi"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__STAT64"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BniDzi'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9138c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_9138c.dir/build.make CMakeFiles/cmTC_9138c.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BniDzi»
+        Building C object CMakeFiles/cmTC_9138c.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_stat64 -o CMakeFiles/cmTC_9138c.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BniDzi/CheckFunctionExists.c
+        Linking C executable cmTC_9138c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9138c.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_9138c.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_stat64'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_stat64 CMakeFiles/cmTC_9138c.dir/CheckFunctionExists.c.o -o cmTC_9138c
+        make[1]: *** [CMakeFiles/cmTC_9138c.dir/build.make:102: cmTC_9138c] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BniDzi»
+        make: *** [Makefile:134: cmTC_9138c/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:108 (check_symbol_exists)"
+    checks:
+      - "Looking for _snprintf"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__SNPRINTF"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7e82d/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_7e82d.dir/build.make CMakeFiles/cmTC_7e82d.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ»
+        Building C object CMakeFiles/cmTC_7e82d.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_7e82d.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ/CheckSymbolExists.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ/CheckSymbolExists.c: В функции «main»:
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ/CheckSymbolExists.c:8:19: ошибка: «_snprintf» не описан (первое использование в этой функции); имелось в виду «vsnprintf»?
+            8 |   return ((int*)(&_snprintf))[argc];
+              |                   ^~~~~~~~~
+              |                   vsnprintf
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ/CheckSymbolExists.c:8:19: замечание: сообщение о каждом неописанном идентификаторе выдается один раз в каждой функции, где он встречается
+        make[1]: *** [CMakeFiles/cmTC_7e82d.dir/build.make:81: CMakeFiles/cmTC_7e82d.dir/CheckSymbolExists.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9d3EJJ»
+        make: *** [Makefile:134: cmTC_7e82d/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:109 (check_symbol_exists)"
+    checks:
+      - "Looking for _snprintf_s"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__SNPRINTF_S"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6ae8a/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_6ae8a.dir/build.make CMakeFiles/cmTC_6ae8a.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX»
+        Building C object CMakeFiles/cmTC_6ae8a.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_6ae8a.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX/CheckSymbolExists.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX/CheckSymbolExists.c: В функции «main»:
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX/CheckSymbolExists.c:8:19: ошибка: «_snprintf_s» не описан (первое использование в этой функции); имелось в виду «vsnprintf»?
+            8 |   return ((int*)(&_snprintf_s))[argc];
+              |                   ^~~~~~~~~~~
+              |                   vsnprintf
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX/CheckSymbolExists.c:8:19: замечание: сообщение о каждом неописанном идентификаторе выдается один раз в каждой функции, где он встречается
+        make[1]: *** [CMakeFiles/cmTC_6ae8a.dir/build.make:81: CMakeFiles/cmTC_6ae8a.dir/CheckSymbolExists.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ycqkqX»
+        make: *** [Makefile:134: cmTC_6ae8a/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:110 (check_symbol_exists)"
+    checks:
+      - "Looking for _snwprintf_s"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__SNWPRINTF_S"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8073c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_8073c.dir/build.make CMakeFiles/cmTC_8073c.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU»
+        Building C object CMakeFiles/cmTC_8073c.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_8073c.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU/CheckSymbolExists.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU/CheckSymbolExists.c: В функции «main»:
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU/CheckSymbolExists.c:8:19: ошибка: «_snwprintf_s» не описан (первое использование в этой функции); имелось в виду «vsnprintf»?
+            8 |   return ((int*)(&_snwprintf_s))[argc];
+              |                   ^~~~~~~~~~~~
+              |                   vsnprintf
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU/CheckSymbolExists.c:8:19: замечание: сообщение о каждом неописанном идентификаторе выдается один раз в каждой функции, где он встречается
+        make[1]: *** [CMakeFiles/cmTC_8073c.dir/build.make:81: CMakeFiles/cmTC_8073c.dir/CheckSymbolExists.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jipxRU»
+        make: *** [Makefile:134: cmTC_8073c/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:111 (check_function_exists)"
+    checks:
+      - "Looking for _strdup"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BnMZPR"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BnMZPR"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__STRDUP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BnMZPR'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_885f4/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_885f4.dir/build.make CMakeFiles/cmTC_885f4.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BnMZPR»
+        Building C object CMakeFiles/cmTC_885f4.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_strdup -o CMakeFiles/cmTC_885f4.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BnMZPR/CheckFunctionExists.c
+        Linking C executable cmTC_885f4
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_885f4.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_885f4.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_strdup'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_strdup CMakeFiles/cmTC_885f4.dir/CheckFunctionExists.c.o -o cmTC_885f4
+        make[1]: *** [CMakeFiles/cmTC_885f4.dir/build.make:102: cmTC_885f4] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-BnMZPR»
+        make: *** [Makefile:134: cmTC_885f4/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:112 (check_symbol_exists)"
+    checks:
+      - "Looking for _stricmp"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__STRICMP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c7d3a/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_c7d3a.dir/build.make CMakeFiles/cmTC_c7d3a.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B»
+        Building C object CMakeFiles/cmTC_c7d3a.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_c7d3a.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B/CheckSymbolExists.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B/CheckSymbolExists.c: В функции «main»:
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B/CheckSymbolExists.c:8:19: ошибка: «_stricmp» не описан (первое использование в этой функции); имелось в виду «strncmp»?
+            8 |   return ((int*)(&_stricmp))[argc];
+              |                   ^~~~~~~~
+              |                   strncmp
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B/CheckSymbolExists.c:8:19: замечание: сообщение о каждом неописанном идентификаторе выдается один раз в каждой функции, где он встречается
+        make[1]: *** [CMakeFiles/cmTC_c7d3a.dir/build.make:81: CMakeFiles/cmTC_c7d3a.dir/CheckSymbolExists.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uV4z7B»
+        make: *** [Makefile:134: cmTC_c7d3a/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:113 (check_function_exists)"
+    checks:
+      - "Looking for _strtoi64"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-rxn0zi"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-rxn0zi"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__STRTOI64"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-rxn0zi'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8f210/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_8f210.dir/build.make CMakeFiles/cmTC_8f210.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-rxn0zi»
+        Building C object CMakeFiles/cmTC_8f210.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_strtoi64 -o CMakeFiles/cmTC_8f210.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-rxn0zi/CheckFunctionExists.c
+        Linking C executable cmTC_8f210
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8f210.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_8f210.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_strtoi64'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_strtoi64 CMakeFiles/cmTC_8f210.dir/CheckFunctionExists.c.o -o cmTC_8f210
+        make[1]: *** [CMakeFiles/cmTC_8f210.dir/build.make:102: cmTC_8f210] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-rxn0zi»
+        make: *** [Makefile:134: cmTC_8f210/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:114 (check_function_exists)"
+    checks:
+      - "Looking for _strtoui64"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-2rZNXa"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-2rZNXa"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__STRTOUI64"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-2rZNXa'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a19e9/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_a19e9.dir/build.make CMakeFiles/cmTC_a19e9.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-2rZNXa»
+        Building C object CMakeFiles/cmTC_a19e9.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_strtoui64 -o CMakeFiles/cmTC_a19e9.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-2rZNXa/CheckFunctionExists.c
+        Linking C executable cmTC_a19e9
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a19e9.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_a19e9.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_strtoui64'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_strtoui64 CMakeFiles/cmTC_a19e9.dir/CheckFunctionExists.c.o -o cmTC_a19e9
+        make[1]: *** [CMakeFiles/cmTC_a19e9.dir/build.make:102: cmTC_a19e9] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-2rZNXa»
+        make: *** [Makefile:134: cmTC_a19e9/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:115 (check_function_exists)"
+    checks:
+      - "Looking for _unlink"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-1zq3Wu"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-1zq3Wu"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE__UNLINK"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-1zq3Wu'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8bc4d/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_8bc4d.dir/build.make CMakeFiles/cmTC_8bc4d.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-1zq3Wu»
+        Building C object CMakeFiles/cmTC_8bc4d.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=_unlink -o CMakeFiles/cmTC_8bc4d.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-1zq3Wu/CheckFunctionExists.c
+        Linking C executable cmTC_8bc4d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8bc4d.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_8bc4d.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `_unlink'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=_unlink CMakeFiles/cmTC_8bc4d.dir/CheckFunctionExists.c.o -o cmTC_8bc4d
+        make[1]: *** [CMakeFiles/cmTC_8bc4d.dir/build.make:102: cmTC_8bc4d] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-1zq3Wu»
+        make: *** [Makefile:134: cmTC_8bc4d/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:116 (check_function_exists)"
+    checks:
+      - "Looking for arc4random"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vKZO7r"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vKZO7r"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_ARC4RANDOM"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vKZO7r'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e9d06/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_e9d06.dir/build.make CMakeFiles/cmTC_e9d06.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vKZO7r»
+        Building C object CMakeFiles/cmTC_e9d06.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=arc4random -o CMakeFiles/cmTC_e9d06.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vKZO7r/CheckFunctionExists.c
+        Linking C executable cmTC_e9d06
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9d06.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=arc4random CMakeFiles/cmTC_e9d06.dir/CheckFunctionExists.c.o -o cmTC_e9d06
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vKZO7r»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:117 (check_function_exists)"
+    checks:
+      - "Looking for clonefile"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-0DnPOe"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-0DnPOe"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_CLONEFILE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-0DnPOe'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_fc65f/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_fc65f.dir/build.make CMakeFiles/cmTC_fc65f.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-0DnPOe»
+        Building C object CMakeFiles/cmTC_fc65f.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=clonefile -o CMakeFiles/cmTC_fc65f.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-0DnPOe/CheckFunctionExists.c
+        Linking C executable cmTC_fc65f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc65f.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_fc65f.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `clonefile'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=clonefile CMakeFiles/cmTC_fc65f.dir/CheckFunctionExists.c.o -o cmTC_fc65f
+        make[1]: *** [CMakeFiles/cmTC_fc65f.dir/build.make:102: cmTC_fc65f] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-0DnPOe»
+        make: *** [Makefile:134: cmTC_fc65f/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:118 (check_function_exists)"
+    checks:
+      - "Looking for explicit_bzero"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jjXqe3"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jjXqe3"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_EXPLICIT_BZERO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jjXqe3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_dfbc5/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_dfbc5.dir/build.make CMakeFiles/cmTC_dfbc5.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jjXqe3»
+        Building C object CMakeFiles/cmTC_dfbc5.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=explicit_bzero -o CMakeFiles/cmTC_dfbc5.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jjXqe3/CheckFunctionExists.c
+        Linking C executable cmTC_dfbc5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dfbc5.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=explicit_bzero CMakeFiles/cmTC_dfbc5.dir/CheckFunctionExists.c.o -o cmTC_dfbc5
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-jjXqe3»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:119 (check_function_exists)"
+    checks:
+      - "Looking for explicit_memset"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-IOifqq"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-IOifqq"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_EXPLICIT_MEMSET"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-IOifqq'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_5e4cb/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_5e4cb.dir/build.make CMakeFiles/cmTC_5e4cb.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-IOifqq»
+        Building C object CMakeFiles/cmTC_5e4cb.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=explicit_memset -o CMakeFiles/cmTC_5e4cb.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-IOifqq/CheckFunctionExists.c
+        Linking C executable cmTC_5e4cb
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e4cb.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_5e4cb.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `explicit_memset'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=explicit_memset CMakeFiles/cmTC_5e4cb.dir/CheckFunctionExists.c.o -o cmTC_5e4cb
+        make[1]: *** [CMakeFiles/cmTC_5e4cb.dir/build.make:102: cmTC_5e4cb] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-IOifqq»
+        make: *** [Makefile:134: cmTC_5e4cb/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:120 (check_function_exists)"
+    checks:
+      - "Looking for fchmod"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-tjBNWX"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-tjBNWX"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_FCHMOD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-tjBNWX'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_0e673/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_0e673.dir/build.make CMakeFiles/cmTC_0e673.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-tjBNWX»
+        Building C object CMakeFiles/cmTC_0e673.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=fchmod -o CMakeFiles/cmTC_0e673.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-tjBNWX/CheckFunctionExists.c
+        Linking C executable cmTC_0e673
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e673.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fchmod CMakeFiles/cmTC_0e673.dir/CheckFunctionExists.c.o -o cmTC_0e673
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-tjBNWX»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:121 (check_function_exists)"
+    checks:
+      - "Looking for fileno"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-p2V4pR"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-p2V4pR"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_FILENO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-p2V4pR'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_de1ac/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_de1ac.dir/build.make CMakeFiles/cmTC_de1ac.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-p2V4pR»
+        Building C object CMakeFiles/cmTC_de1ac.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=fileno -o CMakeFiles/cmTC_de1ac.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-p2V4pR/CheckFunctionExists.c
+        Linking C executable cmTC_de1ac
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de1ac.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fileno CMakeFiles/cmTC_de1ac.dir/CheckFunctionExists.c.o -o cmTC_de1ac
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-p2V4pR»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:122 (check_function_exists)"
+    checks:
+      - "Looking for fseeko"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3noX7u"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3noX7u"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_FSEEKO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3noX7u'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ae868/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_ae868.dir/build.make CMakeFiles/cmTC_ae868.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3noX7u»
+        Building C object CMakeFiles/cmTC_ae868.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=fseeko -o CMakeFiles/cmTC_ae868.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3noX7u/CheckFunctionExists.c
+        Linking C executable cmTC_ae868
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae868.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fseeko CMakeFiles/cmTC_ae868.dir/CheckFunctionExists.c.o -o cmTC_ae868
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3noX7u»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:123 (check_function_exists)"
+    checks:
+      - "Looking for ftello"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XehZd9"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XehZd9"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_FTELLO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XehZd9'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_856c6/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_856c6.dir/build.make CMakeFiles/cmTC_856c6.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XehZd9»
+        Building C object CMakeFiles/cmTC_856c6.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=ftello -o CMakeFiles/cmTC_856c6.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XehZd9/CheckFunctionExists.c
+        Linking C executable cmTC_856c6
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_856c6.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=ftello CMakeFiles/cmTC_856c6.dir/CheckFunctionExists.c.o -o cmTC_856c6
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XehZd9»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:124 (check_function_exists)"
+    checks:
+      - "Looking for getprogname"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-KFeVUj"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-KFeVUj"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_GETPROGNAME"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-KFeVUj'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_02836/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_02836.dir/build.make CMakeFiles/cmTC_02836.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-KFeVUj»
+        Building C object CMakeFiles/cmTC_02836.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=getprogname -o CMakeFiles/cmTC_02836.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-KFeVUj/CheckFunctionExists.c
+        Linking C executable cmTC_02836
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02836.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_02836.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `getprogname'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=getprogname CMakeFiles/cmTC_02836.dir/CheckFunctionExists.c.o -o cmTC_02836
+        make[1]: *** [CMakeFiles/cmTC_02836.dir/build.make:102: cmTC_02836] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-KFeVUj»
+        make: *** [Makefile:134: cmTC_02836/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:125 (check_function_exists)"
+    checks:
+      - "Looking for GetSecurityInfo"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Ikb1BY"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Ikb1BY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_GETSECURITYINFO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Ikb1BY'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cb267/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_cb267.dir/build.make CMakeFiles/cmTC_cb267.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Ikb1BY»
+        Building C object CMakeFiles/cmTC_cb267.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=GetSecurityInfo -o CMakeFiles/cmTC_cb267.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Ikb1BY/CheckFunctionExists.c
+        Linking C executable cmTC_cb267
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cb267.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_cb267.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `GetSecurityInfo'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=GetSecurityInfo CMakeFiles/cmTC_cb267.dir/CheckFunctionExists.c.o -o cmTC_cb267
+        make[1]: *** [CMakeFiles/cmTC_cb267.dir/build.make:102: cmTC_cb267] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Ikb1BY»
+        make: *** [Makefile:134: cmTC_cb267/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:126 (check_symbol_exists)"
+    checks:
+      - "Looking for localtime_r"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7PQ0fn"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7PQ0fn"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_LOCALTIME_R"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7PQ0fn'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7e703/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_7e703.dir/build.make CMakeFiles/cmTC_7e703.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7PQ0fn»
+        Building C object CMakeFiles/cmTC_7e703.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_7e703.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7PQ0fn/CheckSymbolExists.c
+        Linking C executable cmTC_7e703
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e703.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_7e703.dir/CheckSymbolExists.c.o -o cmTC_7e703
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7PQ0fn»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:127 (check_symbol_exists)"
+    checks:
+      - "Looking for localtime_s"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_LOCALTIME_S"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_5cd2a/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_5cd2a.dir/build.make CMakeFiles/cmTC_5cd2a.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2»
+        Building C object CMakeFiles/cmTC_5cd2a.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_5cd2a.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2/CheckSymbolExists.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2/CheckSymbolExists.c: В функции «main»:
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2/CheckSymbolExists.c:8:19: ошибка: «localtime_s» не описан (первое использование в этой функции); имелось в виду «localtime_r»?
+            8 |   return ((int*)(&localtime_s))[argc];
+              |                   ^~~~~~~~~~~
+              |                   localtime_r
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2/CheckSymbolExists.c:8:19: замечание: сообщение о каждом неописанном идентификаторе выдается один раз в каждой функции, где он встречается
+        make[1]: *** [CMakeFiles/cmTC_5cd2a.dir/build.make:81: CMakeFiles/cmTC_5cd2a.dir/CheckSymbolExists.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-hSiOu2»
+        make: *** [Makefile:134: cmTC_5cd2a/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:128 (check_function_exists)"
+    checks:
+      - "Looking for memcpy_s"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-i83W29"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-i83W29"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_MEMCPY_S"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-i83W29'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c52a7/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_c52a7.dir/build.make CMakeFiles/cmTC_c52a7.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-i83W29»
+        Building C object CMakeFiles/cmTC_c52a7.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=memcpy_s -o CMakeFiles/cmTC_c52a7.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-i83W29/CheckFunctionExists.c
+        Linking C executable cmTC_c52a7
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c52a7.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_c52a7.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `memcpy_s'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=memcpy_s CMakeFiles/cmTC_c52a7.dir/CheckFunctionExists.c.o -o cmTC_c52a7
+        make[1]: *** [CMakeFiles/cmTC_c52a7.dir/build.make:102: cmTC_c52a7] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-i83W29»
+        make: *** [Makefile:134: cmTC_c52a7/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:129 (check_function_exists)"
+    checks:
+      - "Looking for random"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-iF0Brk"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-iF0Brk"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_RANDOM"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-iF0Brk'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f6aa8/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_f6aa8.dir/build.make CMakeFiles/cmTC_f6aa8.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-iF0Brk»
+        Building C object CMakeFiles/cmTC_f6aa8.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=random -o CMakeFiles/cmTC_f6aa8.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-iF0Brk/CheckFunctionExists.c
+        Linking C executable cmTC_f6aa8
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f6aa8.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=random CMakeFiles/cmTC_f6aa8.dir/CheckFunctionExists.c.o -o cmTC_f6aa8
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-iF0Brk»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:130 (check_function_exists)"
+    checks:
+      - "Looking for setmode"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-eQXVKR"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-eQXVKR"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_SETMODE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-eQXVKR'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_67a19/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_67a19.dir/build.make CMakeFiles/cmTC_67a19.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-eQXVKR»
+        Building C object CMakeFiles/cmTC_67a19.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=setmode -o CMakeFiles/cmTC_67a19.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-eQXVKR/CheckFunctionExists.c
+        Linking C executable cmTC_67a19
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67a19.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_67a19.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `setmode'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=setmode CMakeFiles/cmTC_67a19.dir/CheckFunctionExists.c.o -o cmTC_67a19
+        make[1]: *** [CMakeFiles/cmTC_67a19.dir/build.make:102: cmTC_67a19] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-eQXVKR»
+        make: *** [Makefile:134: cmTC_67a19/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:131 (check_symbol_exists)"
+    checks:
+      - "Looking for snprintf"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cesjxZ"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cesjxZ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_SNPRINTF"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cesjxZ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ea096/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_ea096.dir/build.make CMakeFiles/cmTC_ea096.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cesjxZ»
+        Building C object CMakeFiles/cmTC_ea096.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_ea096.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cesjxZ/CheckSymbolExists.c
+        Linking C executable cmTC_ea096
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea096.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ea096.dir/CheckSymbolExists.c.o -o cmTC_ea096
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cesjxZ»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:132 (check_symbol_exists)"
+    checks:
+      - "Looking for snprintf_s"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_SNPRINTF_S"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_eebe6/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_eebe6.dir/build.make CMakeFiles/cmTC_eebe6.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3»
+        Building C object CMakeFiles/cmTC_eebe6.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_eebe6.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3/CheckSymbolExists.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3/CheckSymbolExists.c: В функции «main»:
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3/CheckSymbolExists.c:8:19: ошибка: «snprintf_s» не описан (первое использование в этой функции); имелось в виду «snprintf»?
+            8 |   return ((int*)(&snprintf_s))[argc];
+              |                   ^~~~~~~~~~
+              |                   snprintf
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3/CheckSymbolExists.c:8:19: замечание: сообщение о каждом неописанном идентификаторе выдается один раз в каждой функции, где он встречается
+        make[1]: *** [CMakeFiles/cmTC_eebe6.dir/build.make:81: CMakeFiles/cmTC_eebe6.dir/CheckSymbolExists.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-A5D9b3»
+        make: *** [Makefile:134: cmTC_eebe6/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:133 (check_symbol_exists)"
+    checks:
+      - "Looking for strcasecmp"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cl1Xqt"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cl1Xqt"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRCASECMP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cl1Xqt'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_19d9e/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_19d9e.dir/build.make CMakeFiles/cmTC_19d9e.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cl1Xqt»
+        Building C object CMakeFiles/cmTC_19d9e.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_19d9e.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cl1Xqt/CheckSymbolExists.c
+        Linking C executable cmTC_19d9e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19d9e.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_19d9e.dir/CheckSymbolExists.c.o -o cmTC_19d9e
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cl1Xqt»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:134 (check_function_exists)"
+    checks:
+      - "Looking for strdup"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Rfphpn"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Rfphpn"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRDUP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Rfphpn'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8a2e8/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_8a2e8.dir/build.make CMakeFiles/cmTC_8a2e8.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Rfphpn»
+        Building C object CMakeFiles/cmTC_8a2e8.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=strdup -o CMakeFiles/cmTC_8a2e8.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Rfphpn/CheckFunctionExists.c
+        <command-line>: предупреждение: conflicting types for built-in function «strdup»; expected «char *(const char *)» [-Wbuiltin-declaration-mismatch]
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Rfphpn/CheckFunctionExists.c:7:3: замечание: в расширении макроса «CHECK_FUNCTION_EXISTS»
+            7 |   CHECK_FUNCTION_EXISTS(void);
+              |   ^~~~~~~~~~~~~~~~~~~~~
+        Linking C executable cmTC_8a2e8
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a2e8.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strdup CMakeFiles/cmTC_8a2e8.dir/CheckFunctionExists.c.o -o cmTC_8a2e8
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Rfphpn»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:135 (check_function_exists)"
+    checks:
+      - "Looking for strerror_s"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-APk6uH"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-APk6uH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRERROR_S"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-APk6uH'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f734d/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_f734d.dir/build.make CMakeFiles/cmTC_f734d.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-APk6uH»
+        Building C object CMakeFiles/cmTC_f734d.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=strerror_s -o CMakeFiles/cmTC_f734d.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-APk6uH/CheckFunctionExists.c
+        Linking C executable cmTC_f734d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f734d.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_f734d.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `strerror_s'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strerror_s CMakeFiles/cmTC_f734d.dir/CheckFunctionExists.c.o -o cmTC_f734d
+        make[1]: *** [CMakeFiles/cmTC_f734d.dir/build.make:102: cmTC_f734d] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-APk6uH»
+        make: *** [Makefile:134: cmTC_f734d/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:136 (check_function_exists)"
+    checks:
+      - "Looking for strerrorlen_s"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vMWK5G"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vMWK5G"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRERRORLEN_S"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vMWK5G'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c203e/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_c203e.dir/build.make CMakeFiles/cmTC_c203e.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vMWK5G»
+        Building C object CMakeFiles/cmTC_c203e.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=strerrorlen_s -o CMakeFiles/cmTC_c203e.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vMWK5G/CheckFunctionExists.c
+        Linking C executable cmTC_c203e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c203e.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_c203e.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `strerrorlen_s'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strerrorlen_s CMakeFiles/cmTC_c203e.dir/CheckFunctionExists.c.o -o cmTC_c203e
+        make[1]: *** [CMakeFiles/cmTC_c203e.dir/build.make:102: cmTC_c203e] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vMWK5G»
+        make: *** [Makefile:134: cmTC_c203e/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:137 (check_function_exists)"
+    checks:
+      - "Looking for stricmp"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ox81qV"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ox81qV"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRICMP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ox81qV'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ada46/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_ada46.dir/build.make CMakeFiles/cmTC_ada46.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ox81qV»
+        Building C object CMakeFiles/cmTC_ada46.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=stricmp -o CMakeFiles/cmTC_ada46.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ox81qV/CheckFunctionExists.c
+        Linking C executable cmTC_ada46
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ada46.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_ada46.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `stricmp'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=stricmp CMakeFiles/cmTC_ada46.dir/CheckFunctionExists.c.o -o cmTC_ada46
+        make[1]: *** [CMakeFiles/cmTC_ada46.dir/build.make:102: cmTC_ada46] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ox81qV»
+        make: *** [Makefile:134: cmTC_ada46/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:138 (check_function_exists)"
+    checks:
+      - "Looking for strncpy_s"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-LsSSCK"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-LsSSCK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRNCPY_S"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-LsSSCK'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_3b6b6/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_3b6b6.dir/build.make CMakeFiles/cmTC_3b6b6.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-LsSSCK»
+        Building C object CMakeFiles/cmTC_3b6b6.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=strncpy_s -o CMakeFiles/cmTC_3b6b6.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-LsSSCK/CheckFunctionExists.c
+        Linking C executable cmTC_3b6b6
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3b6b6.dir/link.txt --verbose=1
+        /usr/bin/ld: CMakeFiles/cmTC_3b6b6.dir/CheckFunctionExists.c.o: в функции «main»:
+        CheckFunctionExists.c:(.text+0x10): undefined reference to `strncpy_s'
+        collect2: ошибка: выполнение ld завершилось с кодом возврата 1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strncpy_s CMakeFiles/cmTC_3b6b6.dir/CheckFunctionExists.c.o -o cmTC_3b6b6
+        make[1]: *** [CMakeFiles/cmTC_3b6b6.dir/build.make:102: cmTC_3b6b6] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-LsSSCK»
+        make: *** [Makefile:134: cmTC_3b6b6/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:139 (check_function_exists)"
+    checks:
+      - "Looking for strtoll"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9vFxmv"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9vFxmv"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRTOLL"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9vFxmv'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8804f/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_8804f.dir/build.make CMakeFiles/cmTC_8804f.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9vFxmv»
+        Building C object CMakeFiles/cmTC_8804f.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=strtoll -o CMakeFiles/cmTC_8804f.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9vFxmv/CheckFunctionExists.c
+        Linking C executable cmTC_8804f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8804f.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strtoll CMakeFiles/cmTC_8804f.dir/CheckFunctionExists.c.o -o cmTC_8804f
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-9vFxmv»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:140 (check_function_exists)"
+    checks:
+      - "Looking for strtoull"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ae246n"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ae246n"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRTOULL"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ae246n'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d696d/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_d696d.dir/build.make CMakeFiles/cmTC_d696d.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ae246n»
+        Building C object CMakeFiles/cmTC_d696d.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=strtoull -o CMakeFiles/cmTC_d696d.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ae246n/CheckFunctionExists.c
+        Linking C executable cmTC_d696d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d696d.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strtoull CMakeFiles/cmTC_d696d.dir/CheckFunctionExists.c.o -o cmTC_d696d
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ae246n»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFiles.cmake:141 (try_compile)"
+      - "CMakeLists.txt:142 (check_include_files)"
+    checks:
+      - "Looking for 3 include files sys/types.h, ..., fts.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7kP7Sy"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7kP7Sy"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_FTS_H"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7kP7Sy'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_86d82/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_86d82.dir/build.make CMakeFiles/cmTC_86d82.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7kP7Sy»
+        Building C object CMakeFiles/cmTC_86d82.dir/HAVE_FTS_H.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_86d82.dir/HAVE_FTS_H.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7kP7Sy/HAVE_FTS_H.c
+        Linking C executable cmTC_86d82
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86d82.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_86d82.dir/HAVE_FTS_H.c.o -o cmTC_86d82
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-7kP7Sy»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "CMakeLists.txt:145 (check_function_exists)"
+    checks:
+      - "Looking for fts_open"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3SPLKl"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3SPLKl"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_FTS_OPEN"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3SPLKl'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2078c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_2078c.dir/build.make CMakeFiles/cmTC_2078c.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3SPLKl»
+        Building C object CMakeFiles/cmTC_2078c.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=fts_open -o CMakeFiles/cmTC_2078c.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3SPLKl/CheckFunctionExists.c
+        Linking C executable cmTC_2078c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2078c.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fts_open CMakeFiles/cmTC_2078c.dir/CheckFunctionExists.c.o -o cmTC_2078c
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-3SPLKl»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFiles.cmake:141 (try_compile)"
+      - "CMakeLists.txt:161 (check_include_files)"
+    checks:
+      - "Looking for include file stdbool.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-CCaFwZ"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-CCaFwZ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STDBOOL_H"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-CCaFwZ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_badbb/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_badbb.dir/build.make CMakeFiles/cmTC_badbb.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-CCaFwZ»
+        Building C object CMakeFiles/cmTC_badbb.dir/HAVE_STDBOOL_H.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_badbb.dir/HAVE_STDBOOL_H.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-CCaFwZ/HAVE_STDBOOL_H.c
+        Linking C executable cmTC_badbb
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_badbb.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_badbb.dir/HAVE_STDBOOL_H.c.o -o cmTC_badbb
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-CCaFwZ»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFiles.cmake:141 (try_compile)"
+      - "CMakeLists.txt:162 (check_include_files)"
+    checks:
+      - "Looking for include file strings.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-f97UpG"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-f97UpG"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STRINGS_H"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-f97UpG'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_11fad/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_11fad.dir/build.make CMakeFiles/cmTC_11fad.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-f97UpG»
+        Building C object CMakeFiles/cmTC_11fad.dir/HAVE_STRINGS_H.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_11fad.dir/HAVE_STRINGS_H.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-f97UpG/HAVE_STRINGS_H.c
+        Linking C executable cmTC_11fad
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11fad.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_11fad.dir/HAVE_STRINGS_H.c.o -o cmTC_11fad
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-f97UpG»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFiles.cmake:141 (try_compile)"
+      - "CMakeLists.txt:163 (check_include_files)"
+    checks:
+      - "Looking for include file unistd.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-WabMoA"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-WabMoA"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_UNISTD_H"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-WabMoA'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4b5cf/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_4b5cf.dir/build.make CMakeFiles/cmTC_4b5cf.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-WabMoA»
+        Building C object CMakeFiles/cmTC_4b5cf.dir/HAVE_UNISTD_H.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_4b5cf.dir/HAVE_UNISTD_H.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-WabMoA/HAVE_UNISTD_H.c
+        Linking C executable cmTC_4b5cf
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b5cf.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_4b5cf.dir/HAVE_UNISTD_H.c.o -o cmTC_4b5cf
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-WabMoA»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFiles.cmake:141 (try_compile)"
+      - "CMakeLists.txt:165 (check_include_files)"
+    checks:
+      - "Looking for include file inttypes.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-gXinGY"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-gXinGY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_INTTYPES_H_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-gXinGY'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e892e/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_e892e.dir/build.make CMakeFiles/cmTC_e892e.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-gXinGY»
+        Building C object CMakeFiles/cmTC_e892e.dir/HAVE_INTTYPES_H_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_e892e.dir/HAVE_INTTYPES_H_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-gXinGY/HAVE_INTTYPES_H_LIBZIP.c
+        Linking C executable cmTC_e892e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e892e.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_e892e.dir/HAVE_INTTYPES_H_LIBZIP.c.o -o cmTC_e892e
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-gXinGY»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFiles.cmake:141 (try_compile)"
+      - "CMakeLists.txt:166 (check_include_files)"
+    checks:
+      - "Looking for include file stdint.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-QT5g9g"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-QT5g9g"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STDINT_H_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-QT5g9g'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_43c56/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_43c56.dir/build.make CMakeFiles/cmTC_43c56.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-QT5g9g»
+        Building C object CMakeFiles/cmTC_43c56.dir/HAVE_STDINT_H_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_43c56.dir/HAVE_STDINT_H_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-QT5g9g/HAVE_STDINT_H_LIBZIP.c
+        Linking C executable cmTC_43c56
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_43c56.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_43c56.dir/HAVE_STDINT_H_LIBZIP.c.o -o cmTC_43c56
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-QT5g9g»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFiles.cmake:141 (try_compile)"
+      - "CMakeLists.txt:167 (check_include_files)"
+    checks:
+      - "Looking for include file sys/types.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-OdC7QR"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-OdC7QR"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-OdC7QR'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_50ef3/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_50ef3.dir/build.make CMakeFiles/cmTC_50ef3.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-OdC7QR»
+        Building C object CMakeFiles/cmTC_50ef3.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_50ef3.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-OdC7QR/HAVE_SYS_TYPES_H_LIBZIP.c
+        Linking C executable cmTC_50ef3
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50ef3.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_50ef3.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o -o cmTC_50ef3
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-OdC7QR»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:318 (check_include_file)"
+      - "CMakeLists.txt:173 (check_type_size)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Te6m4f"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Te6m4f"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Te6m4f'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_24f36/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_24f36.dir/build.make CMakeFiles/cmTC_24f36.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Te6m4f»
+        Building C object CMakeFiles/cmTC_24f36.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_24f36.dir/CheckIncludeFile.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Te6m4f/CheckIncludeFile.c
+        Linking C executable cmTC_24f36
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24f36.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_24f36.dir/CheckIncludeFile.c.o -o cmTC_24f36
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Te6m4f»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:319 (check_include_file)"
+      - "CMakeLists.txt:173 (check_type_size)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-y5nTQy"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-y5nTQy"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-y5nTQy'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_50808/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_50808.dir/build.make CMakeFiles/cmTC_50808.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-y5nTQy»
+        Building C object CMakeFiles/cmTC_50808.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_50808.dir/CheckIncludeFile.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-y5nTQy/CheckIncludeFile.c
+        Linking C executable cmTC_50808
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50808.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_50808.dir/CheckIncludeFile.c.o -o cmTC_50808
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-y5nTQy»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:320 (check_include_file)"
+      - "CMakeLists.txt:173 (check_type_size)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vdUHi8"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vdUHi8"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vdUHi8'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_3f9a8/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_3f9a8.dir/build.make CMakeFiles/cmTC_3f9a8.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vdUHi8»
+        Building C object CMakeFiles/cmTC_3f9a8.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_3f9a8.dir/CheckIncludeFile.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vdUHi8/CheckIncludeFile.c
+        Linking C executable cmTC_3f9a8
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3f9a8.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_3f9a8.dir/CheckIncludeFile.c.o -o cmTC_3f9a8
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vdUHi8»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:173 (check_type_size)"
+    checks:
+      - "Check size of __int8"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Voaabo"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Voaabo"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE___INT8_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Voaabo'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_596f4/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_596f4.dir/build.make CMakeFiles/cmTC_596f4.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Voaabo»
+        Building C object CMakeFiles/cmTC_596f4.dir/__INT8_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_596f4.dir/__INT8_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Voaabo/__INT8_LIBZIP.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Voaabo/__INT8_LIBZIP.c:27:22: ошибка: «__int8» не описан здесь (не в функции); имелось в виду «u_int»?
+           27 | #define SIZE (sizeof(__int8))
+              |                      ^~~~~~
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Voaabo/__INT8_LIBZIP.c:29:12: замечание: в расширении макроса «SIZE»
+           29 |   ('0' + ((SIZE / 10000)%10)),
+              |            ^~~~
+        make[1]: *** [CMakeFiles/cmTC_596f4.dir/build.make:81: CMakeFiles/cmTC_596f4.dir/__INT8_LIBZIP.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Voaabo»
+        make: *** [Makefile:134: cmTC_596f4/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:174 (check_type_size)"
+    checks:
+      - "Check size of int8_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TdQ3LM"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TdQ3LM"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_INT8_T_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TdQ3LM'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9b7f0/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_9b7f0.dir/build.make CMakeFiles/cmTC_9b7f0.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TdQ3LM»
+        Building C object CMakeFiles/cmTC_9b7f0.dir/INT8_T_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_9b7f0.dir/INT8_T_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TdQ3LM/INT8_T_LIBZIP.c
+        Linking C executable cmTC_9b7f0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b7f0.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_9b7f0.dir/INT8_T_LIBZIP.c.o -o cmTC_9b7f0
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TdQ3LM»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:175 (check_type_size)"
+    checks:
+      - "Check size of uint8_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-FaTpmm"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-FaTpmm"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_UINT8_T_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-FaTpmm'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_09bcb/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_09bcb.dir/build.make CMakeFiles/cmTC_09bcb.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-FaTpmm»
+        Building C object CMakeFiles/cmTC_09bcb.dir/UINT8_T_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_09bcb.dir/UINT8_T_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-FaTpmm/UINT8_T_LIBZIP.c
+        Linking C executable cmTC_09bcb
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09bcb.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_09bcb.dir/UINT8_T_LIBZIP.c.o -o cmTC_09bcb
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-FaTpmm»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:176 (check_type_size)"
+    checks:
+      - "Check size of __int16"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TUKBYd"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TUKBYd"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE___INT16_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TUKBYd'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2f45c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_2f45c.dir/build.make CMakeFiles/cmTC_2f45c.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TUKBYd»
+        Building C object CMakeFiles/cmTC_2f45c.dir/__INT16_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_2f45c.dir/__INT16_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TUKBYd/__INT16_LIBZIP.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TUKBYd/__INT16_LIBZIP.c:27:22: ошибка: «__int16» не описан здесь (не в функции); имелось в виду «__int16_t»?
+           27 | #define SIZE (sizeof(__int16))
+              |                      ^~~~~~~
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TUKBYd/__INT16_LIBZIP.c:29:12: замечание: в расширении макроса «SIZE»
+           29 |   ('0' + ((SIZE / 10000)%10)),
+              |            ^~~~
+        make[1]: *** [CMakeFiles/cmTC_2f45c.dir/build.make:81: CMakeFiles/cmTC_2f45c.dir/__INT16_LIBZIP.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-TUKBYd»
+        make: *** [Makefile:134: cmTC_2f45c/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:177 (check_type_size)"
+    checks:
+      - "Check size of int16_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XwdXPH"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XwdXPH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_INT16_T_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XwdXPH'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e51cf/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_e51cf.dir/build.make CMakeFiles/cmTC_e51cf.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XwdXPH»
+        Building C object CMakeFiles/cmTC_e51cf.dir/INT16_T_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_e51cf.dir/INT16_T_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XwdXPH/INT16_T_LIBZIP.c
+        Linking C executable cmTC_e51cf
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e51cf.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_e51cf.dir/INT16_T_LIBZIP.c.o -o cmTC_e51cf
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-XwdXPH»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:178 (check_type_size)"
+    checks:
+      - "Check size of uint16_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-96crJu"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-96crJu"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_UINT16_T_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-96crJu'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2c9fd/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_2c9fd.dir/build.make CMakeFiles/cmTC_2c9fd.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-96crJu»
+        Building C object CMakeFiles/cmTC_2c9fd.dir/UINT16_T_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_2c9fd.dir/UINT16_T_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-96crJu/UINT16_T_LIBZIP.c
+        Linking C executable cmTC_2c9fd
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c9fd.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_2c9fd.dir/UINT16_T_LIBZIP.c.o -o cmTC_2c9fd
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-96crJu»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:179 (check_type_size)"
+    checks:
+      - "Check size of __int32"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-siKTVU"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-siKTVU"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE___INT32_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-siKTVU'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_21912/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_21912.dir/build.make CMakeFiles/cmTC_21912.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-siKTVU»
+        Building C object CMakeFiles/cmTC_21912.dir/__INT32_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_21912.dir/__INT32_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-siKTVU/__INT32_LIBZIP.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-siKTVU/__INT32_LIBZIP.c:27:22: ошибка: «__int32» не описан здесь (не в функции); имелось в виду «__int32_t»?
+           27 | #define SIZE (sizeof(__int32))
+              |                      ^~~~~~~
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-siKTVU/__INT32_LIBZIP.c:29:12: замечание: в расширении макроса «SIZE»
+           29 |   ('0' + ((SIZE / 10000)%10)),
+              |            ^~~~
+        make[1]: *** [CMakeFiles/cmTC_21912.dir/build.make:81: CMakeFiles/cmTC_21912.dir/__INT32_LIBZIP.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-siKTVU»
+        make: *** [Makefile:134: cmTC_21912/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:180 (check_type_size)"
+    checks:
+      - "Check size of int32_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-m74PYy"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-m74PYy"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_INT32_T_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-m74PYy'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a901c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_a901c.dir/build.make CMakeFiles/cmTC_a901c.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-m74PYy»
+        Building C object CMakeFiles/cmTC_a901c.dir/INT32_T_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_a901c.dir/INT32_T_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-m74PYy/INT32_T_LIBZIP.c
+        Linking C executable cmTC_a901c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a901c.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_a901c.dir/INT32_T_LIBZIP.c.o -o cmTC_a901c
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-m74PYy»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:181 (check_type_size)"
+    checks:
+      - "Check size of uint32_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-v542ZE"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-v542ZE"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_UINT32_T_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-v542ZE'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_12ca3/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_12ca3.dir/build.make CMakeFiles/cmTC_12ca3.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-v542ZE»
+        Building C object CMakeFiles/cmTC_12ca3.dir/UINT32_T_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_12ca3.dir/UINT32_T_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-v542ZE/UINT32_T_LIBZIP.c
+        Linking C executable cmTC_12ca3
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12ca3.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_12ca3.dir/UINT32_T_LIBZIP.c.o -o cmTC_12ca3
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-v542ZE»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:182 (check_type_size)"
+    checks:
+      - "Check size of __int64"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uKWInx"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uKWInx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE___INT64_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uKWInx'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cb42f/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_cb42f.dir/build.make CMakeFiles/cmTC_cb42f.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uKWInx»
+        Building C object CMakeFiles/cmTC_cb42f.dir/__INT64_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_cb42f.dir/__INT64_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uKWInx/__INT64_LIBZIP.c
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uKWInx/__INT64_LIBZIP.c:27:22: ошибка: «__int64» не описан здесь (не в функции); имелось в виду «__int64_t»?
+           27 | #define SIZE (sizeof(__int64))
+              |                      ^~~~~~~
+        /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uKWInx/__INT64_LIBZIP.c:29:12: замечание: в расширении макроса «SIZE»
+           29 |   ('0' + ((SIZE / 10000)%10)),
+              |            ^~~~
+        make[1]: *** [CMakeFiles/cmTC_cb42f.dir/build.make:81: CMakeFiles/cmTC_cb42f.dir/__INT64_LIBZIP.c.o] Ошибка 1
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-uKWInx»
+        make: *** [Makefile:134: cmTC_cb42f/fast] Ошибка 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:183 (check_type_size)"
+    checks:
+      - "Check size of int64_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-mwvTeZ"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-mwvTeZ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_INT64_T_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-mwvTeZ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_526fe/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_526fe.dir/build.make CMakeFiles/cmTC_526fe.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-mwvTeZ»
+        Building C object CMakeFiles/cmTC_526fe.dir/INT64_T_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_526fe.dir/INT64_T_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-mwvTeZ/INT64_T_LIBZIP.c
+        Linking C executable cmTC_526fe
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_526fe.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_526fe.dir/INT64_T_LIBZIP.c.o -o cmTC_526fe
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-mwvTeZ»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:184 (check_type_size)"
+    checks:
+      - "Check size of uint64_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-lLroSd"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-lLroSd"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_UINT64_T_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-lLroSd'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b55f6/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_b55f6.dir/build.make CMakeFiles/cmTC_b55f6.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-lLroSd»
+        Building C object CMakeFiles/cmTC_b55f6.dir/UINT64_T_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_b55f6.dir/UINT64_T_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-lLroSd/UINT64_T_LIBZIP.c
+        Linking C executable cmTC_b55f6
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b55f6.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_b55f6.dir/UINT64_T_LIBZIP.c.o -o cmTC_b55f6
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-lLroSd»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:185 (check_type_size)"
+    checks:
+      - "Check size of short"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xzLmT5"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xzLmT5"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_SHORT_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xzLmT5'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b1b91/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_b1b91.dir/build.make CMakeFiles/cmTC_b1b91.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xzLmT5»
+        Building C object CMakeFiles/cmTC_b1b91.dir/SHORT_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_b1b91.dir/SHORT_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xzLmT5/SHORT_LIBZIP.c
+        Linking C executable cmTC_b1b91
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1b91.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_b1b91.dir/SHORT_LIBZIP.c.o -o cmTC_b1b91
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-xzLmT5»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:186 (check_type_size)"
+    checks:
+      - "Check size of int"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vB1jN4"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vB1jN4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_INT_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vB1jN4'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_637af/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_637af.dir/build.make CMakeFiles/cmTC_637af.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vB1jN4»
+        Building C object CMakeFiles/cmTC_637af.dir/INT_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_637af.dir/INT_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vB1jN4/INT_LIBZIP.c
+        Linking C executable cmTC_637af
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_637af.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_637af.dir/INT_LIBZIP.c.o -o cmTC_637af
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-vB1jN4»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:187 (check_type_size)"
+    checks:
+      - "Check size of long"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-EbCuTc"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-EbCuTc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_LONG_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-EbCuTc'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_1b5f0/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_1b5f0.dir/build.make CMakeFiles/cmTC_1b5f0.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-EbCuTc»
+        Building C object CMakeFiles/cmTC_1b5f0.dir/LONG_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_1b5f0.dir/LONG_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-EbCuTc/LONG_LIBZIP.c
+        Linking C executable cmTC_1b5f0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b5f0.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_1b5f0.dir/LONG_LIBZIP.c.o -o cmTC_1b5f0
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-EbCuTc»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:188 (check_type_size)"
+    checks:
+      - "Check size of long long"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cX0k9j"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cX0k9j"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_LONG_LONG_LIBZIP"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cX0k9j'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_3568b/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_3568b.dir/build.make CMakeFiles/cmTC_3568b.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cX0k9j»
+        Building C object CMakeFiles/cmTC_3568b.dir/LONG_LONG_LIBZIP.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_3568b.dir/LONG_LONG_LIBZIP.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cX0k9j/LONG_LONG_LIBZIP.c
+        Linking C executable cmTC_3568b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3568b.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_3568b.dir/LONG_LONG_LIBZIP.c.o -o cmTC_3568b
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-cX0k9j»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:189 (check_type_size)"
+    checks:
+      - "Check size of off_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-6LRtnz"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-6LRtnz"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_SIZEOF_OFF_T"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-6LRtnz'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_95d10/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_95d10.dir/build.make CMakeFiles/cmTC_95d10.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-6LRtnz»
+        Building C object CMakeFiles/cmTC_95d10.dir/SIZEOF_OFF_T.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_95d10.dir/SIZEOF_OFF_T.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-6LRtnz/SIZEOF_OFF_T.c
+        Linking C executable cmTC_95d10
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_95d10.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_95d10.dir/SIZEOF_OFF_T.c.o -o cmTC_95d10
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-6LRtnz»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:212 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckTypeSize.cmake:339 (__check_type_size_impl)"
+      - "CMakeLists.txt:190 (check_type_size)"
+    checks:
+      - "Check size of size_t"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-sPlxoK"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-sPlxoK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_SIZEOF_SIZE_T"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-sPlxoK'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_3e32c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_3e32c.dir/build.make CMakeFiles/cmTC_3e32c.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-sPlxoK»
+        Building C object CMakeFiles/cmTC_3e32c.dir/SIZEOF_SIZE_T.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_3e32c.dir/SIZEOF_SIZE_T.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-sPlxoK/SIZEOF_SIZE_T.c
+        Linking C executable cmTC_3e32c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e32c.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_3e32c.dir/SIZEOF_SIZE_T.c.o -o cmTC_3e32c
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-sPlxoK»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:192 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_FICLONERANGE"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MHanQv"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MHanQv"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_FICLONERANGE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MHanQv'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_3007f/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_3007f.dir/build.make CMakeFiles/cmTC_3007f.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MHanQv»
+        Building C object CMakeFiles/cmTC_3007f.dir/src.c.o
+        /usr/bin/cc -DHAVE_FICLONERANGE -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_3007f.dir/src.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MHanQv/src.c
+        Linking C executable cmTC_3007f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3007f.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_3007f.dir/src.c.o -o cmTC_3007f
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MHanQv»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "/usr/share/cmake/Modules/FindBZip2.cmake:100 (check_symbol_exists)"
+      - "CMakeLists.txt:229 (find_package)"
+    checks:
+      - "Looking for BZ2_bzCompressInit"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Gct6M7"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Gct6M7"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "BZIP2_NEED_PREFIX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Gct6M7'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_19a5e/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_19a5e.dir/build.make CMakeFiles/cmTC_19a5e.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Gct6M7»
+        Building C object CMakeFiles/cmTC_19a5e.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1   -o CMakeFiles/cmTC_19a5e.dir/CheckSymbolExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Gct6M7/CheckSymbolExists.c
+        Linking C executable cmTC_19a5e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19a5e.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_19a5e.dir/CheckSymbolExists.c.o -o cmTC_19a5e  /usr/lib/libbz2.so
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Gct6M7»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "/usr/share/cmake/Modules/FindLibLZMA.cmake:100 (check_library_exists)"
+      - "CMakeLists.txt:238 (find_package)"
+    checks:
+      - "Looking for lzma_auto_decoder in /usr/lib/liblzma.so"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Qnkzl2"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Qnkzl2"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "LIBLZMA_HAS_AUTO_DECODER"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Qnkzl2'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2bca4/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_2bca4.dir/build.make CMakeFiles/cmTC_2bca4.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Qnkzl2»
+        Building C object CMakeFiles/cmTC_2bca4.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=lzma_auto_decoder -o CMakeFiles/cmTC_2bca4.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Qnkzl2/CheckFunctionExists.c
+        Linking C executable cmTC_2bca4
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2bca4.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=lzma_auto_decoder CMakeFiles/cmTC_2bca4.dir/CheckFunctionExists.c.o -o cmTC_2bca4  /usr/lib/liblzma.so
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-Qnkzl2»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "/usr/share/cmake/Modules/FindLibLZMA.cmake:101 (check_library_exists)"
+      - "CMakeLists.txt:238 (find_package)"
+    checks:
+      - "Looking for lzma_easy_encoder in /usr/lib/liblzma.so"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MytNAC"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MytNAC"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "LIBLZMA_HAS_EASY_ENCODER"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MytNAC'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_efbf5/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_efbf5.dir/build.make CMakeFiles/cmTC_efbf5.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MytNAC»
+        Building C object CMakeFiles/cmTC_efbf5.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=lzma_easy_encoder -o CMakeFiles/cmTC_efbf5.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MytNAC/CheckFunctionExists.c
+        Linking C executable cmTC_efbf5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efbf5.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=lzma_easy_encoder CMakeFiles/cmTC_efbf5.dir/CheckFunctionExists.c.o -o cmTC_efbf5  /usr/lib/liblzma.so
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-MytNAC»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "/usr/share/cmake/Modules/FindLibLZMA.cmake:102 (check_library_exists)"
+      - "CMakeLists.txt:238 (find_package)"
+    checks:
+      - "Looking for lzma_lzma_preset in /usr/lib/liblzma.so"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ZzrPXe"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ZzrPXe"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "LIBLZMA_HAS_LZMA_PRESET"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ZzrPXe'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_79d6c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_79d6c.dir/build.make CMakeFiles/cmTC_79d6c.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ZzrPXe»
+        Building C object CMakeFiles/cmTC_79d6c.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=lzma_lzma_preset -o CMakeFiles/cmTC_79d6c.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ZzrPXe/CheckFunctionExists.c
+        Linking C executable cmTC_79d6c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79d6c.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=lzma_lzma_preset CMakeFiles/cmTC_79d6c.dir/CheckFunctionExists.c.o -o cmTC_79d6c  /usr/lib/liblzma.so
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ZzrPXe»
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckFunctionExists.cmake:93 (try_compile)"
+      - "src/CMakeLists.txt:1 (check_function_exists)"
+    checks:
+      - "Looking for getopt"
+    directories:
+      source: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ezmJ5m"
+      binary: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ezmJ5m"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/user/dir/PDFCreator/deps/libzip-1.11.4/cmake"
+    buildResult:
+      variable: "HAVE_GETOPT"
+      cached: true
+      stdout: |
+        Change Dir: '/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ezmJ5m'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cd586/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_cd586.dir/build.make CMakeFiles/cmTC_cd586.dir/build
+        make[1]: вход в каталог «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ezmJ5m»
+        Building C object CMakeFiles/cmTC_cd586.dir/CheckFunctionExists.c.o
+        /usr/bin/cc -D__STDC_WANT_LIB_EXT1__=1  -DCHECK_FUNCTION_EXISTS=getopt -o CMakeFiles/cmTC_cd586.dir/CheckFunctionExists.c.o -c /home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ezmJ5m/CheckFunctionExists.c
+        Linking C executable cmTC_cd586
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd586.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=getopt CMakeFiles/cmTC_cd586.dir/CheckFunctionExists.c.o -o cmTC_cd586
+        make[1]: выход из каталога «/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/CMakeFiles/CMakeScratch/TryCompile-ezmJ5m»
+        
+      exitCode: 0
+...

@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/zipcmp.dir/link.d CMakeFiles/zipcmp.dir/zipcmp.c.o CMakeFiles/zipcmp.dir/diff_output.c.o -o zipcmp  -Wl,-rpath,/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/lib: ../lib/libzip.so.5.5 /usr/lib/libz.so

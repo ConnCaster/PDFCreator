@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/ziptool.dir/link.d CMakeFiles/ziptool.dir/ziptool.c.o -o ziptool  -Wl,-rpath,/home/user/dir/PDFCreator/deps/libzip-1.11.4/build/lib: ../lib/libzip.so.5.5

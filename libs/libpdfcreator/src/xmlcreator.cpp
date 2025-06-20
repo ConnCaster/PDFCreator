@@ -12,6 +12,20 @@ const std::vector<std::string> TestXMLDirector::kHeaders_ = {
     "Пользователь"
 };
 
+const std::vector<std::string> TestODSDirector::kHeaders_ = {
+    "ID",
+    "Тип события",
+    "Журнал",
+    "Время",
+    "Результат",
+    "Информация",
+    "Объект",
+    "Принтер",
+    "Пользователь"
+};
+
+
+
 
 void XmlDocument::AddTableHeaders(float font_size, const std::vector<std::string> &headers,
                                   const std::vector<float> &column_widths) {
@@ -119,4 +133,45 @@ std::string XmlDocument::AddFontStyle(float font_size) {
     xml_node text_properties = text_style.append_child("style:text-properties");
     text_properties.append_attribute("fo:font-size").set_value((std::to_string(font_size) + "pt").c_str());
     return style_name;
+}
+
+#include "zip.h"
+
+void OdsDocument::SaveToFile(const std::string& file_path) {
+    const std::string mimetype_start =    "application/vnd.oasis.opendocument.spreadsheet";
+    const std::string stylesxml_start =   "<?xml version='1.0' encoding='UTF-8'?>\n<office:document-styles xmlns:text=\"urn:oasis:names:tc:opendocument:xmlns:text:1.0\" xmlns:table=\"urn:oasis:names:tc:opendocument:xmlns:table:1.0\" xmlns:office=\"urn:oasis:names:tc:opendocument:xmlns:office:1.0\" xmlns:manifest=\"urn:oasis:names:tc:opendocument:xmlns:manifest:1.0\" xmlns:meta=\"urn:oasis:names:tc:opendocument:xmlns:meta:1.0\" office:version=\"1.1\"><office:styles/><office:automatic-styles></office:automatic-styles></office:document-styles>";
+    const std::string metaxml_start =     "<?xml version='1.0' encoding='UTF-8'?>\n<office:document-meta xmlns:table=\"urn:oasis:names:tc:opendocument:xmlns:table:1.0\" xmlns:manifest=\"urn:oasis:names:tc:opendocument:xmlns:manifest:1.0\" xmlns:presentation=\"urn:oasis:names:tc:opendocument:xmlns:presentation:1.0\" xmlns:meta=\"urn:oasis:names:tc:opendocument:xmlns:meta:1.0\" xmlns:style=\"urn:oasis:names:tc:opendocument:xmlns:style:1.0\" xmlns:chart=\"urn:oasis:names:tc:opendocument:xmlns:chart:1.0\" xmlns:draw=\"urn:oasis:names:tc:opendocument:xmlns:drawing:1.0\" xmlns:text=\"urn:oasis:names:tc:opendocument:xmlns:text:1.0\" xmlns:office=\"urn:oasis:names:tc:opendocument:xmlns:office:1.0\" office:version=\"1.1\"><office:meta><meta:generator>ODFPY/0.9.6</meta:generator></office:meta></office:document-meta>";
+    const std::string manifestxml_start = "<?xml version='1.0' encoding='UTF-8'?>\n<manifest:manifest xmlns:table=\"urn:oasis:names:tc:opendocument:xmlns:table:1.0\" xmlns:manifest=\"urn:oasis:names:tc:opendocument:xmlns:manifest:1.0\" xmlns:presentation=\"urn:oasis:names:tc:opendocument:xmlns:presentation:1.0\" xmlns:meta=\"urn:oasis:names:tc:opendocument:xmlns:meta:1.0\" xmlns:style=\"urn:oasis:names:tc:opendocument:xmlns:style:1.0\" xmlns:chart=\"urn:oasis:names:tc:opendocument:xmlns:chart:1.0\" xmlns:draw=\"urn:oasis:names:tc:opendocument:xmlns:drawing:1.0\" xmlns:text=\"urn:oasis:names:tc:opendocument:xmlns:text:1.0\" xmlns:office=\"urn:oasis:names:tc:opendocument:xmlns:office:1.0\"><manifest:file-entry manifest:media-type=\"application/vnd.oasis.opendocument.spreadsheet\" manifest:full-path=\"/\"/><manifest:file-entry manifest:media-type=\"text/xml\" manifest:full-path=\"styles.xml\"/><manifest:file-entry manifest:media-type=\"text/xml\" manifest:full-path=\"content.xml\"/><manifest:file-entry manifest:media-type=\"text/xml\" manifest:full-path=\"meta.xml\"/></manifest:manifest>";
+
+    std::stringstream ss;
+    doc_.print(ss);
+    std::string xml_str = ss.str();
+
+    zip_t *empty_archive = zip_open(file_path.data(), ZIP_CREATE | ZIP_TRUNCATE, nullptr);
+    zip_source *source_mimetype = zip_source_buffer(empty_archive, mimetype_start.c_str(), mimetype_start.length(), 0);
+    zip_source *source_stylesxml = zip_source_buffer(empty_archive, stylesxml_start.c_str(), stylesxml_start.length(), 0);
+    zip_source *source_contentxml = zip_source_buffer(empty_archive, xml_str.c_str(), xml_str.length(), 0);
+    zip_source *source_metaxml = zip_source_buffer(empty_archive, metaxml_start.c_str(), metaxml_start.length(), 0);
+    zip_source *source_manifestxml = zip_source_buffer(empty_archive, manifestxml_start.c_str(), manifestxml_start.length(), 0);
+
+    if(!source_mimetype || !source_stylesxml || !source_contentxml || !source_metaxml || !source_manifestxml) {
+        if(source_mimetype) zip_source_free(source_mimetype);
+        if(source_stylesxml) zip_source_free(source_stylesxml);
+        if(source_contentxml) zip_source_free(source_contentxml);
+        if(source_metaxml) zip_source_free(source_metaxml);
+        if(source_manifestxml) zip_source_free(source_manifestxml);
+        return;
+    }
+
+    zip_file_add(empty_archive, "mimetype", source_mimetype, ZIP_FL_ENC_UTF_8 | ZIP_FL_OVERWRITE);
+    zip_file_add(empty_archive, "styles.xml", source_stylesxml, ZIP_FL_ENC_UTF_8 | ZIP_FL_OVERWRITE);
+    zip_file_add(empty_archive, "content.xml", source_contentxml, ZIP_FL_ENC_UTF_8 | ZIP_FL_OVERWRITE);
+    zip_file_add(empty_archive, "meta.xml", source_metaxml, ZIP_FL_ENC_UTF_8 | ZIP_FL_OVERWRITE);
+
+    zip_dir_add(empty_archive, "META-INF", ZIP_FL_ENC_UTF_8);
+
+    zip_file_add(empty_archive, "META-INF/manifest.xml", source_manifestxml, ZIP_FL_ENC_UTF_8 | ZIP_FL_OVERWRITE);
+
+    zip_close(empty_archive);
+    std::cout << "ZIP created successfully!" << std::endl;
 }

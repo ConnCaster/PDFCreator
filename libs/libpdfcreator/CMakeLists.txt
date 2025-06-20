@@ -15,6 +15,14 @@ find_library(LIBHARU
 )
 target_link_libraries(pdfcreator ${LIBHARU})
 
+find_library(LIBZIP
+        NAMES libzip zip
+        PATHS ${PROJECT_SOURCE_DIR}/3rd_party/libzip/lib
+        NO_DEFAULT_PATH
+        REQUIRED
+)
+target_link_libraries(pdfcreator ${LIBZIP})
+
 list(APPEND PDF_Creator_HEADERS
         ${PROJECT_SOURCE_DIR}/3rd_party/libharu/include
         ${PROJECT_SOURCE_DIR}/3rd_party/
