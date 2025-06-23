@@ -34,7 +34,7 @@ void XmlDocument::AddTableHeaders(float font_size, const std::vector<std::string
         current_table_ = spreadsheet_.append_child("table:table");
         current_table_.append_attribute("table:name").set_value("Sheet 1");
 
-        std::string font_style_name = AddFontStyle(font_size);
+        // std::string font_style_name = AddFontStyle(font_size);
 
         xml_node row = current_table_.append_child("table:table-row");
         for (auto &header: headers) {
@@ -42,7 +42,7 @@ void XmlDocument::AddTableHeaders(float font_size, const std::vector<std::string
             cell.append_attribute("office:value-type").set_value("string");
             // Применяем стиль к тексту
             xml_node p = cell.append_child("text:p");
-            p.append_attribute("text:style-name").set_value(font_style_name.c_str());
+            // p.append_attribute("text:style-name").set_value(font_style_name.c_str());
             p.text().set(header.c_str());
         }
     } else {
@@ -60,7 +60,7 @@ void XmlDocument::AddTableRow(float font_size, const std::vector<std::string> &r
     for (auto &field: row_fields) {
         xml_node cell = row.append_child("table:table-cell");
         cell.append_attribute("office:value-type").set_value("string");
-        cell.append_child("text:p").text().set(EscapeXml(field));
+        cell.append_child("text:p").text().set(field/*EscapeXml(field)*/);
     }
 }
 

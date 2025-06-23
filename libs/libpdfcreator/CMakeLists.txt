@@ -25,6 +25,7 @@ target_link_libraries(pdfcreator ${LIBZIP})
 
 list(APPEND PDF_Creator_HEADERS
         ${PROJECT_SOURCE_DIR}/3rd_party/libharu/include
+        ${PROJECT_SOURCE_DIR}/3rd_party/libzip/include
         ${PROJECT_SOURCE_DIR}/3rd_party/
 
         include/

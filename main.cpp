@@ -7,7 +7,13 @@ int main() {
     TestODSDirector director{builder};
     director.CreateDocument();
     IDocument* document =  builder.GetDocument();
-    document->SaveToFile("/home/user/dir/PDFCreator/out.ods");
+    document->SaveToFile("/home/user/dir/programming/confident/PDFCreator/out.ods");
+
+    // XMLBuilder builder;
+    // TestXMLDirector test_xml_director{builder};
+    // test_xml_director.CreateDocument();
+    // IDocument* xml_document =  builder.GetDocument();
+    // xml_document->SaveToFile("/home/user/dir/programming/confident/PDFCreator/out.xml");
 
     // PDFBuilder builder;
     // TestPDFDirector test_pdf_director{builder};
